@@ -23,6 +23,14 @@
 	<artifactId>geomajas-build-tools</artifactId>
 	<version>2.0.0-SNAPSHOT</version>
 
+	<distributionManagement>
+		<snapshotRepository>
+			<id>geomajas-nexus-snapshots</id>
+			<name>Geomajas Nexus Snapshot</name>
+			<url>http://apps.geomajas.org/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
 	<scm>
 		<connection>scm:git:git@github.com:geomajas/geomajas-build-tools.git</connection>
 		<developerConnection>scm:git:git@github.com:geomajas/geomajas-build-tools.git</developerConnection>
