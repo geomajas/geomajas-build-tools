@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<example>
+	<tag>Some text before</tag>
+	<!-- @extract-start testFile, everything behind comma is ignored  -->
+	<tag>Text to be extracted.</tag>
+	<!-- @extract-end Other text -->
+	<tag>Some text after</tag>
+</example>

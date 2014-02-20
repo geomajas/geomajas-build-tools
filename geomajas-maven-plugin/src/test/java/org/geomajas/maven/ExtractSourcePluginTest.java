@@ -13,8 +13,19 @@ package org.geomajas.maven;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.stub;
+
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -55,5 +66,73 @@ public class ExtractSourcePluginTest {
 		// should not replace, block will be stored in CDATA
 		//Assert.assertEquals("&lt;test&gt;black &amp; white&lt;/test&gt;", list.get(0));
 		Assert.assertEquals("<test>black & white</test>", list.get(0));
+	}
+
+	@Test
+	public void testExtractAnnotatedCodeFromJavaFile() throws Exception {
+		File source = new File(getClass().getResource("/org/geomajas/maven/test.java").toURI());
+		String tempDir = System.getProperty("java.io.tmpdir") + "/geomajasMavenPluginTest/" + new Date().getTime();
+		File destination = new File(tempDir);
+		ExtractSourcePlugin esp = new ExtractSourcePlugin();
+		esp.extractAnnotatedCode(source, destination);
+		Assert.assertEquals(1, destination.listFiles().length);
+		File resultFile = destination.listFiles()[0];
+		Assert.assertEquals("testFile.xml", resultFile.getName());
+		// parse xml
+		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+		Document doc = dBuilder.parse(resultFile);
+		doc.getDocumentElement().normalize();
+
+		// contains one tag programlisting, with attribute language and content CDATA
+		NodeList list = doc.getDocumentElement().getElementsByTagName("programlisting");
+		Assert.assertEquals(1, list.getLength());
+		Node programlistingNode = list.item(0);
+		Assert.assertEquals(1, programlistingNode.getAttributes().getLength());
+		Node languageItem = programlistingNode.getAttributes().item(0);
+		Assert.assertEquals("language", languageItem.getNodeName());
+		Assert.assertEquals("java", languageItem.getNodeValue());
+		Node textContent = programlistingNode.getFirstChild();
+		Assert.assertEquals("Text to be extracted.", textContent.getNodeValue());
+		//analyze xml
+		//delete temporary result file
+		for (File subfile : destination.listFiles()) {
+			subfile.delete();
+		}
+		destination.delete();
+	}
+
+	@Test
+	public void testExtractAnnotatedCodeFromXmlFile() throws Exception {
+		File source = new File(getClass().getResource("/org/geomajas/maven/test.xml").toURI());
+		String tempDir = System.getProperty("java.io.tmpdir") + "/geomajasMavenPluginTest/" + new Date().getTime();
+		File destination = new File(tempDir);
+		ExtractSourcePlugin esp = new ExtractSourcePlugin();
+		esp.extractAnnotatedCode(source, destination);
+		Assert.assertEquals(1, destination.listFiles().length);
+		File resultFile = destination.listFiles()[0];
+		Assert.assertEquals("testFile.xml", resultFile.getName());
+		// parse xml
+		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+		Document doc = dBuilder.parse(resultFile);
+		doc.getDocumentElement().normalize();
+
+		// contains one tag programlisting, with attribute language and content CDATA
+		NodeList list = doc.getDocumentElement().getElementsByTagName("programlisting");
+		Assert.assertEquals(1, list.getLength());
+		Node programlistingNode = list.item(0);
+		Assert.assertEquals(1, programlistingNode.getAttributes().getLength());
+		Node languageItem = programlistingNode.getAttributes().item(0);
+		Assert.assertEquals("language", languageItem.getNodeName());
+		Assert.assertEquals("xml", languageItem.getNodeValue());
+		Node textContent = programlistingNode.getFirstChild();
+		Assert.assertEquals("<tag>Text to be extracted.</tag>", textContent.getNodeValue());
+		//analyze xml
+		//delete temporary result file
+		for (File subfile : destination.listFiles()) {
+			subfile.delete();
+		}
+		destination.delete();
 	}
 }
