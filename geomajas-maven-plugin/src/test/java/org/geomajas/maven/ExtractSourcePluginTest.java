@@ -20,9 +20,6 @@ import org.w3c.dom.NodeList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.stub;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
