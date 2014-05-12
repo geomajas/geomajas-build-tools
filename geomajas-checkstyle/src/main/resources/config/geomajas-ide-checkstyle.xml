@@ -81,6 +81,12 @@
 		<property name="checkFormat" value="IllegalThrowsCheck"/>
 	</module>
 
+    <module name="SuppressionCommentFilter">
+        <property name="offCommentFormat" value="CHECKSTYLE\: OFF"/>
+        <property name="onCommentFormat" value="CHECKSTYLE\: ON"/>
+        <property name="checkFormat" value=".*"/>
+    </module>
+
 	<module name="TreeWalker">
 
 		<property name="cacheFile" value="target/cachefile"/>

@@ -85,6 +85,12 @@
 		<property name="checkFormat" value="IllegalThrowsCheck"/>
 	</module>
 
+    <module name="SuppressionCommentFilter">
+        <property name="offCommentFormat" value="CHECKSTYLE\: OFF"/>
+        <property name="onCommentFormat" value="CHECKSTYLE\: ON"/>
+        <property name="checkFormat" value=".*"/>
+    </module>
+
 	<module name="org.geomajas.checkstyle.TreeWalker">
 
 		<!-- cacheFile should not be used as this breaks the ApiCompatibilityCheck
