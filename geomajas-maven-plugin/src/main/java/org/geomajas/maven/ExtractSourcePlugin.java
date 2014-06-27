@@ -84,13 +84,10 @@ public class ExtractSourcePlugin extends AbstractMojo {
 	public void scanDirectory(File source, File destination) throws IOException {
 		for (File file : source.listFiles()) {
 			String name = file.getName();
-			if (!name.startsWith(".") &&
-					!name.endsWith("~") && !name.endsWith(".bak") &&
-					!name.endsWith(".exe") &&
-					!name.endsWith(".jpg") && !name.endsWith(".jpeg") &&
-					!name.endsWith(".png") &&
-					!name.endsWith(".gif") && 
-					!name.endsWith(".tif") && !name.endsWith(".tiff")) {
+			if (!name.startsWith(".") && !name.endsWith("target") && !name.endsWith("~") && !name.endsWith(".bak")
+					&& !name.endsWith(".exe") && !name.endsWith(".jpg") && !name.endsWith(".jpeg")
+					&& !name.endsWith(".png") && !name.endsWith(".gif") && !name.endsWith(".tif")
+					&& !name.endsWith(".tiff")) {
 				if (file.isDirectory()) {
 					scanDirectory(file, destination);
 				} else {
