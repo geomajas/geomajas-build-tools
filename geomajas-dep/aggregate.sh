@@ -1,7 +1,10 @@
 #! /bin/bash
 
+#set -vx
+
 #TARGETDIR="/home/joachim/tmp/"
 TARGETDIR="/srv/www/files.geomajas.org/htdocs/maven/trunk/geomajas"
+#TARGETDIR="/tmp/geomajasdocs"
 TARGET="$TARGETDIR/temp.html"
 FINAL="$TARGETDIR/documentation.html"
 #LINKPREFIX="file:/home/joachim/tmp/"
@@ -45,7 +48,7 @@ include() {
 	FILE="docs.zip"
 	LOCATION="https://oss.sonatype.org/service/local/artifact/maven/redirect?r=releases&g=$1&a=$2&v=$3&e=jar"
 	if [[ "$3" == *"SNAPSHOT"* ]]; then
-		LOCATION="https://oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&g=$1&a=$2&v=$3&e=jar"
+		LOCATION="http://apps.geomajas.org/nexus/service/local/artifact/maven/redirect?r=latest&g=$1&a=$2&v=$3&e=jar"
 	fi
 	PWD=`pwd`
 	cd $TARGETDIR
@@ -61,7 +64,7 @@ include() {
 	then
 		JDLOCATION="https://oss.sonatype.org/service/local/artifact/maven/redirect?r=releases&g=$8&a=$9&v=${10}&e=jar&c=javadoc"
 		if [[ "${10}" == *"SNAPSHOT"* ]]; then
-			JDLOCATION="https://oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&g=$8&a=$9&v=${10}&e=jar&c=javadoc"
+			JDLOCATION="http://apps.geomajas.org/nexus/service/local/artifact/maven/redirect?r=latest&g=$8&a=$9&v=${10}&e=jar&c=javadoc"
 		fi	
 		wget -q --no-check-certificate $JDLOCATION -O javadocs.zip
 		mkdir -p $2/javadoc
@@ -86,20 +89,37 @@ include() {
 
 template_start
 
+# Versions
+documentation_version=1.12.0-SNAPSHOT
+
+server_version=1.15.1
+server_version_snapshot=1.16.0-SNAPSHOT
+
+gwt_version=1.15.0-M2
+gwt_version_snapshot=1.15.0-SNAPSHOT
+
+gwt2_version=2.0.0-M1
+gwt2_version_snapshot=2.1.0-SNAPSHOT
+
 # main guides
 
-include "org.geomajas.documentation" "docbook-gettingstarted" "1.12.0-SNAPSHOT" \
+include "org.geomajas.documentation" "docbook-gettingstarted" "$documentation_version" \
     "Getting started" \
     "How to get your project up-and-running." \
     "incubating" "Getting_Started.pdf" \
-    "org.geomajas" "geomajas-command" "1.12.0"
+    "org.geomajas" "geomajas-command" "$server_version"
 
-include "org.geomajas.documentation" "docbook-devuserguide" "1.12.0-SNAPSHOT" \
+include "org.geomajas.documentation" "docbook-devuserguide" "$documentation_version" \
     "User guide for developers" \
     "Reference guide detailing architecture, implementation and extension possibilities of the back-end core." \
     "incubating" "User_Guide_for_Developers.pdf" \
-    "org.geomajas" "geomajas-api" "1.12.0"
+    "org.geomajas" "geomajas-api" "$server_version"
 
+include "org.geomajas.documentation" "docbook-contributorguide" "$documentation_version" \
+    "Contributors guide" \
+    "Information for contributors of the project." \
+    "incubating" "Contributor_Guide.pdf" \
+    "" "" ""
 
 # projects
 
@@ -115,17 +135,17 @@ include "org.geomajas.project" "geomajas-project-codemirror-gwt-documentation" "
     "incubating" "master.pdf" \
     "org.geomajas.project" "geomajas-project-codemirror-gwt" "3.1.1"
 
-include "org.geomajas.project" "geomajas-project-geometry-documentation" "1.2.0-SNAPSHOT" \
+include "org.geomajas.project" "geomajas-project-geometry-documentation" "1.4.0-SNAPSHOT" \
     "Geometry DTO project" \
     "Set of GWT compatible Geometry DTOs and services to manipulate them." \
     "incubating" "master.pdf" \
-    "org.geomajas.project" "geomajas-project-geometry-core" "1.1.0"
+    "org.geomajas.project" "geomajas-project-geometry-core" "1.3.0"
 
-include "org.geomajas.documentation" "geomajas-project-sld-documentation" "1.2.0-SNAPSHOT" \
+include "org.geomajas.project" "geomajas-project-sld-documentation" "1.3.0-SNAPSHOT" \
     "SLD DTO project" \
     "Set of GWT compatible SLD DTOs and services to read/write them." \
     "incubating" "master.pdf" \
-    "org.geomajas.project" "geomajas-project-sld-api" "1.1.0"
+    "org.geomajas.project" "geomajas-project-sld-api" "1.2.0"
 
 include "org.geomajas.documentation" "geomajas-project-profiling-documentation" "1.2.0-SNAPSHOT" \
     "Generic profiling project." \
@@ -135,99 +155,107 @@ include "org.geomajas.documentation" "geomajas-project-profiling-documentation" 
 #    "org.geomajas.project" "geomajas-project-profiling-api" "1.0.0"
 
 
-# faces
-
-include "org.geomajas.documentation" "geomajas-face-gwt-documentation" "1.15.0-SNAPSHOT" \
-    "GWT face" \
-    "GWT face for building powerful AJAX web user interfaces in Java using SmartGWT." \
-    "incubating" "gwt_face.pdf" \
-    "org.geomajas" "geomajas-gwt-client" "1.14.0"
-
-include "org.geomajas.documentation" "geomajas-face-gwt-documentation" "2.1.0-SNAPSHOT" \
-    "GWT face" \
-    "GWT face for building powerful AJAX web user interfaces without depending on a widget library. Also suitable for mobile." \
+include "org.geomajas.project" "geomajas-project-sld-documentation" "1.3.0-SNAPSHOT" \
+    "SLD project" \
+    "SLD project." \
     "incubating" "master.pdf" \
-    "org.geomajas" "geomajas-gwt-client" "2.0.0"
+    "org.geomajas.project" "geomajas-project-sld-api" "1.2.0"
 
-include "org.geomajas.documentation" "common-gwt-documentation" "1.5.0-SNAPSHOT" \
+include "org.geomajas.project" "geomajas-project-sld-editor-documentation" "1.0.0-SNAPSHOT" \
+    "SLD editor project" \
+    "SLD editor project." \
+    "incubating" "master.pdf" \
+    "org.geomajas.project" "geomajas-project-sld-editor-expert-gwt" "1.0.0-M2"
+
+include "org.geomajas.project" "geomajas-project-geometry-documentation" "1.4.0-SNAPSHOT" \
+    "Geometry project" \
+    "Geometry project." \
+    "incubating" "master.pdf" \
+    "org.geomajas.project" "geomajas-project-geometry-core" "1.3.0"
+
+# clients
+
+include "org.geomajas.documentation" "geomajas-face-gwt-documentation" "$gwt_version_snapshot" \
+    "GWT client" \
+    "GWT client for building powerful AJAX web user interfaces in Java using SmartGWT." \
+    "incubating" "gwt_face.pdf" \
+    "org.geomajas" "geomajas-gwt-client" "$gwt_version"
+
+include "org.geomajas" "geomajas-client-common-gwt-documentation" "$gwt2_version_snapshot" \
     "Common-GWT " \
     "Common module which is used by both the GWT and PureGWT faces." \
     "incubating" "master.pdf" \
-    "org.geomajas" "geomajas-face-common-gwt" "1.4.0"
+    "org.geomajas" "geomajas-client-common-gwt" "$gwt2_version"
 
-#include "org.geomajas.documentation" "geomajas-face-dojo-documentation" "1.5.7" \
-#    "dojo face" \
-#    "dojo face for building a web user interface in JavaScript using dojo toolkit." \
-#    "retired" "dojo_face.pdf" \
-#    "org.geomajas" "geomajas-dojo-server" "1.5.7"
+include "org.geomajas" "geomajas-client-gwt2-documentation" "$gwt2_version_snapshot" \
+    "GWT2 client" \
+    "GWT client for building powerful web user interfaces in Java using GWT." \
+    "incubating" "master.pdf" \
+    "org.geomajas" "geomajas-client-gwt2-api" "$gwt2_version"
 
-include "org.geomajas.documentation" "geomajas-face-rest-documentation" "1.1.0-SNAPSHOT" \
+
+
+# server plug-ins
+
+include "org.geomajas.documentation" "geomajas-face-rest-documentation" "$server_version_snapshot" \
     "REST face" \
     "face for communication with the Geomajas back-end using REST and GeoJSON." \
     "incubating" "master.pdf" \
-    "org.geomajas" "geomajas-face-rest" "1.0.0"
+    "org.geomajas" "geomajas-face-rest" "$server_version"
 
-# plug-ins
-
-include "org.geomajas.plugin" "geomajas-layer-geotools-documentation" "1.12.0-SNAPSHOT" \
+include "org.geomajas.plugin" "geomajas-layer-geotools-documentation" "$server_version_snapshot" \
     "Geotools layer" \
     "This is a layer which allows accessing GIS data through GeoTools, for example for accessing WFS data." \
     "graduated" "Geotools_layer.pdf" \
-    "org.geomajas.plugin" "geomajas-layer-geotools" "1.11.0"
+    "org.geomajas.plugin" "geomajas-layer-geotools" "$server_version"
 
-include "org.geomajas.plugin" "geomajas-layer-google-documentation" "2.2.0-SNAPSHOT" \
+include "org.geomajas.plugin" "geomajas-layer-googlemaps-documentation" "$server_version_snapshot" \
     "Google layer" \
     "This is a layer which allows accessing Google images as raster layer." \
     "graduated" "Google_layer.pdf" \
-    "org.geomajas.plugin" "geomajas-layer-google" "2.1.0"
+    "org.geomajas.plugin" "geomajas-layer-googlemaps" "$server_version"
 
-include "org.geomajas.plugin" "geomajas-layer-hibernate-documentation" "1.12.0-SNAPSHOT" \
+include "org.geomajas.plugin" "geomajas-layer-hibernate-documentation" "$server_version_snapshot" \
     "Hibernate layer" \
     "This is a layer which allows accessing data in a GIS database using Hibernate and Hibernate Spatial." \
     "graduated" "Hibernate_layer.pdf" \
-    "org.geomajas.plugin" "geomajas-layer-hibernate" "1.11.0"
+    "org.geomajas.plugin" "geomajas-layer-hibernate" "$server_version"
 
-include "org.geomajas.plugin" "geomajas-layer-openstreetmap-documentation" "1.11.0-SNAPSHOT" \
+include "org.geomajas.plugin" "geomajas-layer-openstreetmap-documentation" "$server_version_snapshot" \
     "Openstreetmap layer" \
     "This is a layer which allows accessing Openstreetmap images as raster layer." \
     "graduated" "Openstreetmap_layer.pdf" \
-    "org.geomajas.plugin" "geomajas-layer-openstreetmap" "1.10.0"
+    "org.geomajas.plugin" "geomajas-layer-openstreetmap" "$server_version"
 
-include "org.geomajas.plugin" "geomajas-layer-common-documentation" "1.1.0-SNAPSHOT" \
+include "org.geomajas.plugin" "geomajas-layer-common-documentation" "$server_version_snapshot" \
     "Common layer tools" \
     "This plug-in contains common classes used by layers. (to help with proxying and security)." \
     "incubating" "master.pdf" \
-    "org.geomajas.plugin" "geomajas-plugin-layer-common" "1.0.0"
+    "org.geomajas.plugin" "geomajas-plugin-layer-common" "$server_version"
 
-include "org.geomajas.plugin" "geomajas-layer-tms-documentation" "1.2.0-SNAPSHOT" \
+include "org.geomajas.plugin" "geomajas-layer-tms-documentation" "$server_version_snapshot" \
     "TMS layer" \
     "This is a layer which allows accessing TMS images as raster layer." \
     "incubating" "master.pdf" \
-    "org.geomajas.plugin" "geomajas-layer-tms" "1.1.0"
+    "org.geomajas.plugin" "geomajas-layer-tms" "$server_version"
 
-include "org.geomajas.plugin" "geomajas-layer-wms-documentation" "1.12.0-SNAPSHOT" \
+include "org.geomajas.plugin" "geomajas-layer-wms-documentation" "$server_version_snapshot" \
     "WMS layer" \
     "This is a layer which allows accessing WMS images as raster layer." \
     "graduated" "WMS_layer.pdf" \
-    "org.geomajas.plugin" "geomajas-layer-wms" "1.11.0"
+    "org.geomajas.plugin" "geomajas-layer-wms" "$server_version"
 
-include "org.geomajas.plugin" "geomajas-plugin-wmsclient-documentation" "1.0.0-SNAPSHOT" \
-    "WMS client plugin" \
-    "WMS client plugin." \
-    "incubating" "master.pdf" \
-    "org.geomajas.plugin" "geomajas-plugin-wmsclient" "1.0.0-M3"
-
-include "org.geomajas.plugin" "geomajas-plugin-staticsecurity-documentation" "1.10.0-SNAPSHOT" \
+include "org.geomajas.plugin" "geomajas-plugin-staticsecurity-documentation" "$server_version_snapshot" \
     "Staticsecurity plug-in" \
     "Geomajas security plug-in which allows all users and policies to be defined as part of spring configuration." \
     "graduated" "staticsecurity.pdf" \
-    "org.geomajas.plugin" "geomajas-plugin-staticsecurity" "1.9.0"
+    "org.geomajas.plugin" "geomajas-plugin-staticsecurity" "$server_version"
 
-include "org.geomajas.plugin" "geomajas-plugin-printing-documentation" "2.5.0-SNAPSHOT" \
-    "Printing plug-in" \
-    "Geomajas extension for printing." \
-    "graduated" "printing.pdf" \
-    "org.geomajas.plugin" "geomajas-plugin-printing" "2.4.0-M4"
+include "org.geomajas.plugin" "geomajas-client-gwt2-plugin-wms-documentation" "$gwt2_version_snapshot" \
+    "WMS client plugin" \
+    "WMS client plugin." \
+    "incubating" "master.pdf" \
+    "org.geomajas.plugin" "geomajas-client-gwt2-plugin-wms" "$gwt2_version"
 
 # include "org.geomajas.plugin" "geomajas-plugin-profiling-documentation" "1.0.0-SNAPSHOT" \
 #    "Profiling plug-in" \
@@ -235,116 +263,112 @@ include "org.geomajas.plugin" "geomajas-plugin-printing-documentation" "2.5.0-SN
 #    "incubating" "master.pdf" \
 #    "org.geomajas.plugin" "geomajas-plugin-profiling" "1.0.0-SNAPSHOT"
 
-include "org.geomajas.plugin" "caching-documentation" "2.1.0-SNAPSHOT" \
+include "org.geomajas.plugin" "geomajas-plugin-cache-documentation" "$server_version_snapshot" \
     "Caching plug-in" \
     "Caching to allow data to be calculated only once and cached for later use." \
     "graduated" "caching.pdf" \
-    "org.geomajas.plugin" "geomajas-plugin-caching" "2.0.0"
+    "org.geomajas.plugin" "geomajas-plugin-cache" "$server_version"
 
-include "org.geomajas.plugin" "geocoder-documentation" "1.4.0-SNAPSHOT" \
+include "org.geomajas.plugin" "geocoder-documentation" "$server_version_snapshot" \
     "Geocoder plug-in" \
     "Convert a location description to map coordinates." \
     "graduated" "geocoder.pdf" \
-    "org.geomajas.plugin" "geomajas-plugin-geocoder" "1.3.0"
+    "org.geomajas.plugin" "geomajas-plugin-geocoder" "$server_version"
 
-include "org.geomajas.plugin" "rasterizing-documentation" "1.3.0-SNAPSHOT" \
+include "org.geomajas.plugin" "rasterizing-documentation" "$server_version_snapshot" \
     "Rasterizing plug-in" \
     "Allows tiles to be rasterized server-side." \
     "graduated" "master.pdf" \
-    "org.geomajas.plugin" "geomajas-plugin-rasterizing" "1.2.0"
+    "org.geomajas.plugin" "geomajas-plugin-rasterizing" "$server_version"
 
-include "org.geomajas.widget" "geomajas-widget-advancedviews-documentation" "1.0.0-SNAPSHOT" \
-    "Advanced views widget plug-in" \
-    "Advanced views widget plug-in." \
-    "incubating" "master.pdf" \
-    "org.geomajas.widget" "geomajas-widget-advancedviews" "1.0.0-M3"
 
-include "org.geomajas.widget" "geomajas-widget-featureinfo-documentation" "1.0.0-SNAPSHOT" \
-    "Feature info widget plug-in" \
-    "Feature info widget plug-in." \
-    "incubating" "master.pdf" \
-    "org.geomajas.widget" "geomajas-widget-featureinfo" "1.0.0-M2"
+include "org.geomajas.plugin" "geomajas-plugin-print-documentation" "$server_version_snapshot" \
+    "Printing plug-in" \
+    "Geomajas extension for printing." \
+    "graduated" "printing.pdf" \
+    "org.geomajas.plugin" "geomajas-plugin-print" "$server_version"
 
-include "org.geomajas.widget" "geomajas-widget-layer-documentation" "1.0.0-SNAPSHOT" \
-    "Layer widget plug-in" \
-    "Layer widget plug-in." \
-    "incubating" "master.pdf" \
-    "org.geomajas.widget" "geomajas-widget-layer" "1.0.0-M3"
-
-include "org.geomajas.widget" "geomajas-widget-searchandfilter-documentation" "1.0.0-SNAPSHOT" \
-    "Search and filter widget plug-in" \
-    "Search and filter widget plug-in." \
-    "incubating" "master.pdf" \
-    "org.geomajas.widget" "geomajas-widget-searchandfilter" "1.0.0-M5"
-
-include "org.geomajas.plugin" "geomajas-plugin-deskmanager" "1.0.0-SNAPSHOT" \
-    "Deskmanager plug-in" \
-    "Deskmanager plug-in." \
-    "incubating" "master.pdf" \
-    "org.geomajas.plugin" "geomajas-plugin-deskmanager" "1.0.0-M7"
-
-include "org.geomajas.plugin" "geomajas-plugin-runtimeconfig-documentation" "1.0.0-SNAPSHOT" \
+include "org.geomajas.plugin" "geomajas-plugin-runtimeconfig-documentation" "$server_version_snapshot" \
     "Runtimeconfig plug-in" \
     "Runtimeconfig plug-in." \
     "incubating" "master.pdf" \
-    "org.geomajas.plugin" "geomajas-plugin-runtimeconfig" "1.0.0-M2"
+    "org.geomajas.plugin" "geomajas-plugin-runtimeconfig" "$server_version"
 
-include "org.geomajas.widget" "geomajas-widget-utility-documentation" "1.0.0-SNAPSHOT" \
-    "Utility widgets for GWT" \
-    "Utility widgets for GWT" \
-    "incubating" "master.pdf" \
-    "org.geomajas.widget" "geomajas-widget-utility" "1.0.0-M4"
-
-include "org.geomajas.plugin" "geomajas-plugin-javascript-api-documentation" "1.0.0-SNAPSHOT" \
-    "JavaScript API plug-in" \
-    "JavaScript API wrapper around the GWT faces for client side integration support." \
-    "incubating" "master.pdf" \
-    "" "" ""
-#    "org.geomajas.plugin" "geomajas-plugin-javascript-api" "1.0.0-SNAPSHOT"
-
-include "org.geomajas.plugin" "geomajas-plugin-editing-documentation" "1.0.0-SNAPSHOT" \
-    "Editing plug-in" \
-    "Geomajas extension for more powerful editing." \
-    "incubating" "master.pdf" \
-    "org.geomajas.plugin" "geomajas-plugin-editing" "1.0.0-M3"
-
-include "org.geomajas.plugin" "geomajas-puregwt-widget-documentation" "1.0.0-SNAPSHOT" \
-    "Core widgets for the PureGWT face" \
-    "Set of widgets which alow you to make a PureGWT map more expressive." \
-    "incubating" "master.pdf" \
-    "org.geomajas.plugin" "geomajas-widget-puregwt-core" "1.0.0-M3"
-
-include "org.geomajas.project" "geomajas-project-sld-documentation" "1.2.0-SNAPSHOT" \
-    "SLD project" \
-    "SLD project." \
-    "incubating" "master.pdf" \
-    "org.geomajas.project" "geomajas-project-sld-api" "1.1.0"
-
-include "org.geomajas.project" "geomajas-project-sld-editor-documentation" "1.0.0-SNAPSHOT" \
-    "SLD editor project" \
-    "SLD editor project." \
-    "incubating" "master.pdf" \
-    "org.geomajas.project" "geomajas-project-sld-editor-gwt" "1.0.0-M1"
-
-include "org.geomajas.project" "geomajas-project-geometry-documentation" "1.2.0-SNAPSHOT" \
-    "Geometry project" \
-    "Geometry project." \
-    "incubating" "master.pdf" \
-    "org.geomajas.project" "geomajas-project-geometry-core" "1.1.0"
-
-include "org.geomajas.plugin" "geomajas-plugin-vendorspecificpipeline" "1.1.0-SNAPSHOT" \
+include "org.geomajas.plugin" "geomajas-plugin-vendorspecificpipeline" "$server_version_snapshot" \
     "Vendor specific pipeline plugin" \
     "Vendor specific pipeline plugin." \
     "incubating" "master.pdf" \
-    "org.geomajas.plugin" "geomajas-plugin-vendorspecificpipeline" "1.0.0"
+    "org.geomajas.plugin" "geomajas-plugin-vendorspecificpipeline" "$server_version"
 
-# contributors guide
+include "org.geomajas.plugin" "geomajas-plugin-deskmanager" "$server_version_snapshot" \
+    "Deskmanager plug-in" \
+    "Deskmanager plug-in." \
+    "incubating" "master.pdf" \
+    "org.geomajas.plugin" "geomajas-plugin-deskmanager" "$server_version"
 
-include "org.geomajas.documentation" "docbook-contributorguide" "1.12.0-SNAPSHOT" \
-    "Contributors guide" \
-    "Information for contributors of the project." \
-    "incubating" "Contributor_Guide.pdf" \
-    "" "" ""
+
+
+# GWT plug-ins
+
+
+
+include "org.geomajas.widget" "geomajas-widget-advancedviews-documentation" "$gwt_version_snapshot" \
+    "Advanced views widget plug-in" \
+    "Advanced views widget plug-in." \
+    "incubating" "master.pdf" \
+    "org.geomajas.widget" "geomajas-widget-advancedviews" "$gwt_version"
+
+include "org.geomajas.widget" "geomajas-widget-featureinfo-documentation" "$gwt_version_snapshot" \
+    "Feature info widget plug-in" \
+    "Feature info widget plug-in." \
+    "incubating" "master.pdf" \
+    "org.geomajas.widget" "geomajas-widget-featureinfo" "$gwt_version"
+
+include "org.geomajas.widget" "geomajas-widget-layer-documentation" "$gwt_version_snapshot" \
+    "Layer widget plug-in" \
+    "Layer widget plug-in." \
+    "incubating" "master.pdf" \
+    "org.geomajas.widget" "geomajas-widget-layer" "$gwt_version"
+
+include "org.geomajas.widget" "geomajas-widget-searchandfilter-documentation" "$gwt_version_snapshot" \
+    "Search and filter widget plug-in" \
+    "Search and filter widget plug-in." \
+    "incubating" "master.pdf" \
+    "org.geomajas.widget" "geomajas-widget-searchandfilter" "$gwt_version"
+
+include "org.geomajas.plugin" "geomajas-plugin-deskmanager-gwt" "$gwt_version_snapshot" \
+    "Deskmanager plug-in" \
+    "Deskmanager plug-in." \
+    "incubating" "master.pdf" \
+    "org.geomajas.plugin" "geomajas-plugin-deskmanager-gwt" "$gwt_version"
+
+include "org.geomajas.widget" "geomajas-widget-utility-documentation" "$gwt_version_snapshot" \
+    "Utility widgets for GWT" \
+    "Utility widgets for GWT" \
+    "incubating" "master.pdf" \
+    "org.geomajas.widget" "geomajas-widget-utility" "$gwt_version"
+
+include "org.geomajas.plugin" "geomajas-plugin-javascript-api-documentation" "$gwt_version_snapshot" \
+    "JavaScript API plug-in" \
+    "JavaScript API wrapper around the GWT faces for client side integration support." \
+    "incubating" "master.pdf" \
+    "org.geomajas.plugin" "geomajas-plugin-javascript-api" "$gwt_version"
+
+include "org.geomajas.plugin" "geomajas-plugin-editing-documentation" "$gwt_version_snapshot" \
+    "Editing plug-in" \
+    "Geomajas extension for more powerful editing." \
+    "incubating" "master.pdf" \
+    "org.geomajas.plugin" "geomajas-plugin-editing-gwt" "$gwt_version"
+
+# GWT2 plug-ins
+
+include "org.geomajas.plugin" "geomajas-client-gwt2-plugin-corewidget-documentation" "$gwt2_version_snapshot" \
+    "Core widgets for the PureGWT face" \
+    "Set of widgets which alow you to make a PureGWT map more expressive." \
+    "incubating" "master.pdf" \
+    "org.geomajas.plugin" "geomajas-client-gwt2-plugin-corewidget" "$gwt2_version"
+
+
 
 template_end
 
