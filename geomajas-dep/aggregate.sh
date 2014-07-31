@@ -92,8 +92,8 @@ function generateDocumentation()
 	                # Extract to subfolders when a plugin/widget is found
 	                if [[ $groupId =~ .*plugin*. ]] || [[ $groupId =~ .*widget*. ]]
 	                then
-	                    mkdir -p $targetDirForDocumentation/$project/$snapshotVersion/$artifactId
-	                    unzip -q -o docs.zip -d $targetDirForDocumentation/$project/$snapshotVersion/$artifactId
+	                    mkdir -p $targetDirForDocumentation/$project/$snapshotVersion/plugin/$artifactId
+	                    unzip -q -o docs.zip -d $targetDirForDocumentation/$project/$snapshotVersion/plugin/$artifactId
 	                else
 	                    mkdir -p $targetDirForDocumentation/$project/$snapshotVersion
 	                    unzip -q -o docs.zip -d $targetDirForDocumentation/$project/$snapshotVersion
@@ -114,8 +114,8 @@ function generateDocumentation()
 	                # Extract to subfolders when a plugin/widget is found
 	                if [[ $groupId =~ .*plugin*. ]] || [[ $groupId =~ .*widget*. ]]
 	                then
-	                    mkdir -p $targetDirForDocumentation/$project/$releaseVersion/$artifactId
-	                    unzip -q -o docs.zip -d $targetDirForDocumentation/$project/$releaseVersion/$artifactId
+	                    mkdir -p $targetDirForDocumentation/$project/$releaseVersion/plugin/$artifactId
+	                    unzip -q -o docs.zip -d $targetDirForDocumentation/$project/$releaseVersion/plugin/$artifactId
 	                else
 	                    mkdir -p $targetDirForDocumentation/$project/$releaseVersion
 	                    unzip -q -o docs.zip -d $targetDirForDocumentation/$project/$releaseVersion
@@ -158,8 +158,8 @@ function generateJavaDoc()
 		        # Extract to subfolders when a plugin/widget is found
 		        if [[ $groupId =~ .*plugin*. ]] || [[ $groupId =~ .*widget*. ]]
 		        then
-		            mkdir -p $targetDirForJavaDoc/$project/$snapshotVersion/$artifactId
-		            unzip -q -o javadocs.zip -d $targetDirForJavaDoc/$project/$snapshotVersion/$artifactId
+		            mkdir -p $targetDirForJavaDoc/$project/$snapshotVersion/plugin/$artifactId
+		            unzip -q -o javadocs.zip -d $targetDirForJavaDoc/$project/$snapshotVersion/plugin/$artifactId
 		        else
 		            mkdir -p $targetDirForJavaDoc/$project/$snapshotVersion
 		            unzip -q -o javadocs.zip -d $targetDirForJavaDoc/$project/$snapshotVersion
@@ -183,8 +183,8 @@ function generateJavaDoc()
 		        # Extract to subfolders when a plugin/widget is found
 		        if [[ $groupId =~ .*plugin*. ]] || [[ $groupId =~ .*widget*. ]]
 		        then
-		            mkdir -p $targetDirForJavaDoc/$project/$releaseVersion/$artifactId
-		            unzip -q -o javadocs.zip -d $targetDirForJavaDoc/$project/$releaseVersion/$artifactId
+		            mkdir -p $targetDirForJavaDoc/$project/$releaseVersion/plugin/$artifactId
+		            unzip -q -o javadocs.zip -d $targetDirForJavaDoc/$project/$releaseVersion/plugin/$artifactId
 		        else
 		            mkdir -p $targetDirForJavaDoc/$project/$releaseVersion
 		            unzip -q -o javadocs.zip -d $targetDirForJavaDoc/$project/$releaseVersion
