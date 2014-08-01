@@ -144,11 +144,11 @@ function generateDocumentation()
 	                # Extract to subfolders when a plugin/widget is found
 	                if [[ $groupId =~ .*plugin*. ]] || [[ $groupId =~ .*widget*. ]]
 	                then
-	                    mkdir -p $targetDirForDocumentation/$project/$snapshotVersion/plugin/$artifactId
-	                    unzip -q -o docs.zip -d $targetDirForDocumentation/$project/$snapshotVersion/plugin/$artifactId
+	                    mkdir -p $targetDirForDocumentation/$project/snapshot/plugin/$artifactId
+	                    unzip -q -o docs.zip -d $targetDirForDocumentation/$project/snapshot/plugin/$artifactId
 	                else
-	                    mkdir -p $targetDirForDocumentation/$project/$snapshotVersion
-	                    unzip -q -o docs.zip -d $targetDirForDocumentation/$project/$snapshotVersion
+	                    mkdir -p $targetDirForDocumentation/$project/snapshot
+	                    unzip -q -o docs.zip -d $targetDirForDocumentation/$project/snapshot/
 	                fi
 	                rm docs.zip
 	            fi
@@ -285,11 +285,11 @@ function generateJavaDoc()
 		        # Extract to subfolders when a plugin/widget is found
 		        if [[ $groupId =~ .*plugin*. ]] || [[ $groupId =~ .*widget*. ]]
 		        then
-		            mkdir -p $targetDirForJavaDoc/$project/$snapshotVersion/plugin/$artifactId
-		            unzip -q -o javadocs.zip -d $targetDirForJavaDoc/$project/$snapshotVersion/plugin/$artifactId
+		            mkdir -p $targetDirForJavaDoc/$project/snapshot/plugin/$artifactId
+		            unzip -q -o javadocs.zip -d $targetDirForJavaDoc/$project/snapshot/plugin/$artifactId
 		        else
-		            mkdir -p $targetDirForJavaDoc/$project/$snapshotVersion
-		            unzip -q -o javadocs.zip -d $targetDirForJavaDoc/$project/$snapshotVersion
+		            mkdir -p $targetDirForJavaDoc/$project/snapshot
+		            unzip -q -o javadocs.zip -d $targetDirForJavaDoc/$project/snapshot
 		        fi
 		        printf "%-30s%s\n" "- JAVADOC FOR SNAPSHOT FOUND: " $LOCATION;
 		        rm javadocs.zip
@@ -301,15 +301,15 @@ function generateJavaDoc()
 	done < $fileName
 }
 
-#################################
-# Clean all snapshot directories.
-#################################
+###################################################
+# Delete all snapshot directories for a given path.
+###################################################
 function deleteSnapshotDirectoriesFrom()
 {
-	printf "\n%s\n\n" "# DELETING SNAPSHOT DIRECTORIES ...";
+	printf "\n%s%s\n\n" "# DELETING ALL SNAPSHOT DIRECTORIES FROM: " "${1}";
 
-    # Find all dir ...
-    find ${1} -type d -iname "*SNAPSHOT" -exec rm -rf {} \;
+    # Find all snapshot directories and delete them.
+    find ${1} -type d -iname "snapshot" -prune -exec rm -rvf {} \;
 
 }
 
@@ -332,6 +332,8 @@ function testData()
 #########################################################################################
 
 deleteSnapshotDirectoriesFrom $targetDirForDocumentation;
+
+deleteSnapshotDirectoriesFrom $targetDirForJavaDoc;
 
 generateDocumentation;
 
