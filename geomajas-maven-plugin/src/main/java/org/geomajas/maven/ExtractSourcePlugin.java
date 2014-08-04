@@ -11,9 +11,6 @@
 
 package org.geomajas.maven;
 
-import org.apache.maven.plugin.AbstractMojo;
-import org.apache.maven.plugin.MojoExecutionException;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -23,6 +20,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.maven.plugin.AbstractMojo;
+import org.apache.maven.plugin.MojoExecutionException;
 
 /**
  * Maven plugin to extract excerpts from source files for inclusion in docbook documents.
@@ -58,17 +58,25 @@ public class ExtractSourcePlugin extends AbstractMojo {
 	 * @required
 	 */
 	private String destinationDirectory;
+	
+	/**
+	 * @parameter expression="${docbkx.skip}"
+	 */	
+    private boolean skip;
 
 	public void execute() throws MojoExecutionException {
-		try {
-			File source = new File(sourceDirectory);
-			File destination = new File(destinationDirectory);
-
-			System.out.println("Extract source " + source.getAbsolutePath());
-			System.out.println("Extract dest   " + destination.getAbsolutePath());
-			scanDirectory(source, destination);
-		} catch (Throwable ex) {
-			throw new MojoExecutionException("problems while running extract source plugin\n" + ex.getMessage(), ex);
+		if (!isSkip()) {
+			try {
+				File source = new File(sourceDirectory);
+				File destination = new File(destinationDirectory);
+				getLog().info("Extract source " + source.getAbsolutePath());
+				getLog().info("Extract dest   " + destination.getAbsolutePath());
+				scanDirectory(source, destination);
+			} catch (Throwable ex) {
+				throw new MojoExecutionException("problems while running extract source plugin\n" + ex.getMessage(), ex);
+			}
+		} else {
+			getLog().info("Skipping plugin execution");
 		}
 	}
 
@@ -145,6 +153,14 @@ public class ExtractSourcePlugin extends AbstractMojo {
 			prepareLines(lines);
 			createFile(declaration, lines, destination, getLanguage(file));
 		}
+	}
+	
+	public boolean isSkip() {
+		return skip;
+	}
+	
+	public void setSkip(boolean skip) {
+		this.skip = skip;
 	}
 
 	private String getLanguage(File file) {
