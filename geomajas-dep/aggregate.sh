@@ -91,7 +91,7 @@ function generateDocumentation()
         snapshotVersion=$(grep -oPm1 "(?<=<baseVersion>)[^<]+" <<< $LATEST)
 
 	    # When the artifactId has documentation in it's name do the following ...
-	    if [[ $artifactId =~ .*documentation*. ]]
+	    if [[ $artifactId =~ .*documentation*. ]] || [[ $groupId =~ .*documentation*. ]]
 	    then
 
 	        counter=$((counter+1))
@@ -113,6 +113,12 @@ function generateDocumentation()
 	                    unzip -q -o docs.zip -d $targetDirForDocumentation/$project/$releaseVersion/plugin/$artifactId
 	                    # Add Google analytics script to extracted content.
 	                    addGoogleAnalyticsScriptTo $targetDirForDocumentation/$project/$releaseVersion/plugin/$artifactId
+	                elif [[ $project =~ .*geomajas-project-documentation*.  ]]
+                        then
+                            mkdir -p $targetDirForDocumentation/$project/$releaseVersion/$artifactId
+                            unzip -q -o docs.zip -d $targetDirForDocumentation/$project/$releaseVersion/$artifactId
+                            # Add Google analytics script to extracted content.
+                            addGoogleAnalyticsScriptTo $targetDirForDocumentation/$project/$releaseVersion/$artifactId
 	                else
 	                    mkdir -p $targetDirForDocumentation/$project/$releaseVersion
 	                    unzip -q -o docs.zip -d $targetDirForDocumentation/$project/$releaseVersion
@@ -139,6 +145,12 @@ function generateDocumentation()
 	                    unzip -q -o docs.zip -d $targetDirForDocumentation/$project/$milestoneVersion/plugin/$artifactId
 	                    # Add Google analytics script to extracted content.
 	                    addGoogleAnalyticsScriptTo $targetDirForDocumentation/$project/$milestoneVersion/plugin/$artifactId
+	                elif [[ $project =~ .*geomajas-project-documentation*.  ]]
+                        then
+                            mkdir -p $targetDirForDocumentation/$project/$milestoneVersion/$artifactId
+                            unzip -q -o docs.zip -d $targetDirForDocumentation/$project/$milestoneVersion/$artifactId
+                            # Add Google analytics script to extracted content.
+                            addGoogleAnalyticsScriptTo $targetDirForDocumentation/$project/$milestoneVersion/$artifactId
 	                else
 	                    mkdir -p $targetDirForDocumentation/$project/$milestoneVersion
 	                    unzip -q -o docs.zip -d $targetDirForDocumentation/$project/$milestoneVersion
@@ -165,6 +177,12 @@ function generateDocumentation()
 	                    unzip -q -o docs.zip -d $targetDirForDocumentation/$project/snapshot/plugin/$artifactId
 	                    # Add Google analytics script to extracted content.
 	                    addGoogleAnalyticsScriptTo $targetDirForDocumentation/$project/snapshot/plugin/$artifactId
+	                elif [[ $project =~ .*geomajas-project-documentation*.  ]]
+					then
+						mkdir -p $targetDirForDocumentation/$project/snapshot/$artifactId
+						unzip -q -o docs.zip -d $targetDirForDocumentation/$project/snapshot/$artifactId
+						# Add Google analytics script to extracted content.
+						addGoogleAnalyticsScriptTo $targetDirForDocumentation/$project/snapshot/$artifactId
 	                else
 	                    mkdir -p $targetDirForDocumentation/$project/snapshot
 	                    unzip -q -o docs.zip -d $targetDirForDocumentation/$project/snapshot/
