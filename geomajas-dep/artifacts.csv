@@ -114,8 +114,6 @@ geomajas-project-server,geomajas-server-plugin-cache-parent,org.geomajas.plugin,
 geomajas-project-server,geomajas-plugin-cache-documentation,org.geomajas.plugin,Geomajas server: Plugin cache – Documentation,1.16.1,,/plugin/cache/cache-documentation
 geomajas-project-server,geomajas-plugin-cache-infinispan,org.geomajas.plugin,Geomajas server: Plugin cache – Infinispan,1.16.1,,/plugin/cache/cache-infinispan
 geomajas-project-server,geomajas-plugin-cache,org.geomajas.plugin,Geomajas server: Plugin cache – Implementation,1.16.1,,/plugin/cache/cache
-geomajas-project-server,geomajas-server-plugin-deskmanager-parent,org.geomajas.plugin,Geomajas server: Plugin deskmanager – Parent,1.16.1,,/plugin/deskmanager 
-geomajas-project-server,geomajas-plugin-deskmanager,org.geomajas.plugin,Geomajas server: Plugin deskmanager – Implementation,1.16.1,,/plugin/deskmanager/deskmanager
 geomajas-project-server,geomajas-server-face-rest-parent,org.geomajas.plugin,Geomajas server: REST – Parent,1.16.1,,/plugin/face-rest
 geomajas-project-server,geomajas-face-rest-documentation,org.geomajas.documentation,Geomajas server: REST – Documentation,1.16.1,,/plugin/face-rest/face-rest-documentation
 geomajas-project-server,geomajas-face-rest-example,org.geomajas,Geomajas server: REST – Example,1.16.1,,/plugin/face-rest/face-rest-example
@@ -268,3 +266,8 @@ geomajas-project-codemirror-gwt,geomajas-project-codemirror-gwt-example,org.geom
 geomajas-project-profiling,geomajas-project-profiling-all,org.geomajas.project,Geomajas profiling project parent,1.1.0,,/
 geomajas-project-profiling,geomajas-project-profiling-documentation,org.geomajas.documentation,Geomajas profiling project documentation,1.1.0,,/documentation
 geomajas-project-profiling,geomajas-project-profiling,org.geomajas.project,profiling,1.1.0,,/profiling
+geomajas-project-deskmanager,geomajas-project-deskmanager,org.geomajas.project,Geomajas Project Deskmanager – Parent,1.0.0-M9,,/
+geomajas-project-deskmanager,geomajas-project-deskmanager,org.geomajas,Geomajas Project Deskmanager – Impl,1.0.0-M9,,/impl
+geomajas-project-deskmanager,geomajas-project-deskmanager,org.geomajas,Geomajas Project Deskmanager – Gwt,1.0.0-M9,,/gwt
+geomajas-project-deskmanager,geomajas-project-deskmanager,org.geomajas,Geomajas Project Deskmanager – Documentation,1.0.0-M9,,/documentation
+
