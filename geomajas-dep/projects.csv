@@ -5,7 +5,7 @@ geomajas-project-server,1.15.1,1.16.0-SNAPSHOT
 geomajas-project-client-gwt2,2.0.0-M1,2.1.0-SNAPSHOT
 geomajas-build-tools,2.1.0,2.2.0-SNAPSHOT
 geomajas-gwt2-mobile-quickstart-application,,1.0-SNAPSHOT
-geomajas-project-hammer-gwt,,2.0-SNAPSHOT
+geomajas-project-hammer-gwt,1.0.0,1.1.0-SNAPSHOT
 geomajas-gwt2-quickstart-application,,1.0-SNAPSHOT
 geomajas-gwt-quickstart-application,,1.0-SNAPSHOT
 geomajas-parents,2.1.0,2.2.0-SNAPSHOT
