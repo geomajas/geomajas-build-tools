@@ -217,10 +217,10 @@ geomajas-build-tools,geomajas-dep,org.geomajas,Geomajas dependencies,2.1.0,,/geo
 geomajas-build-tools,geomajas-jetty-runner,org.geomajas,Geomajas Jetty runner,2.1.0,,/geomajas-jetty-runner
 geomajas-build-tools,geomajas-maven-plugin,org.geomajas,Geomajas maven plugin,2.1.0,,/geomajas-maven-plugin
 geomajas-gwt2-mobile-quickstart-application,geomajas-gwt2-mobile-quickstart-application,org.geomajas,Geomajas GWT2 mobile quickstart application,,,/
-geomajas-project-hammer-gwt,geomajas-project-hammer-gwt-all,org.geomajas.hammergwt,hammer gwt,,,/
-geomajas-project-hammer-gwt,geomajas-project-hammer-gwt-documentation,org.geomajas.project,Hammer GWT wrapper documentation,,,/documentation
-geomajas-project-hammer-gwt,geomajas-project-hammer-gwt-example,org.geomajas.hammergwt,,,,/hammer-gwt-example
-geomajas-project-hammer-gwt,geomajas-project-hammer-gwt-impl,org.geomajas.hammergwt,,,,/hammer-gwt-impl
+geomajas-project-hammer-gwt,geomajas-project-hammer-gwt-all,org.geomajas.hammergwt,hammer gwt,1.0.0,,/
+geomajas-project-hammer-gwt,geomajas-project-hammer-gwt-documentation,org.geomajas.project,Hammer GWT wrapper documentation,1.0.0,,/documentation
+geomajas-project-hammer-gwt,geomajas-project-hammer-gwt-example,org.geomajas.hammergwt,1.0.0,,,/hammer-gwt-example
+geomajas-project-hammer-gwt,geomajas-project-hammer-gwt-impl,org.geomajas.hammergwt,1.0.0,,,/hammer-gwt-impl
 geomajas-gwt2-quickstart-application,geomajas-gwt2-quickstart-application,org.geomajas,Geomajas GWT2 quickstart application,,,/
 geomajas-gwt-quickstart-application,geomajas-gwt-quickstart-application,org.geomajas,Geomajas GWT quickstart application,,,/
 geomajas-parents,geomajas-parents,org.geomajas.project,,2.1.0,,/
