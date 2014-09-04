@@ -22,6 +22,11 @@
 
 			<pluginRepositories>
 				<pluginRepository>
+					<id>Geomajas-maven</id>
+                    			<name>Geomajas repository</name>
+                    			<url>http://maven.geomajas.org/</url>
+				</pluginRepository>
+				<pluginRepository>
 					<id>Geomajas</id>
 					<name>Geomajas repository</name>
 					<url>http://repo.geomajas.org/nexus/content/groups/public</url>
