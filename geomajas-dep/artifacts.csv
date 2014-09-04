@@ -1,98 +1,98 @@
 project,artifactid,groupId,name,release version,milestone version,path
-geomajas-project-client-gwt,geomajas-project-client-gwt,org.geomajas.project,Geomajas GWT client: Main - Parent POM,,1.15.0-M3,/
-geomajas-project-client-gwt,geomajas-gwt-archetype,org.geomajas,Geomajas GWT client: Main - Archetype,,1.15.0-M3,/archetype
-geomajas-project-client-gwt,geomajas-gwt-client,org.geomajas,Geomajas GWT client: Main - Implementation,,1.15.0-M3,/client
-geomajas-project-client-gwt,geomajas-client-common-gwt-smartgwt,org.geomajas,Geomajas GWT client: Commons - Library,,1.15.0-M3,/common-gwt-smartgwt
-geomajas-project-client-gwt,geomajas-face-gwt-documentation,org.geomajas,Geomajas GWT client: Main - Documentation,,1.15.0-M3,/documentation
-geomajas-project-client-gwt,geomajas-gwt-example-base,org.geomajas,Geomajas GWT client: Main - Example base,,1.15.0-M3,/example-base
-geomajas-project-client-gwt,geomajas-gwt-face-example-jar,org.geomajas,Geomajas GWT client: Main - Example jar,,1.15.0-M3,/example-jar
-geomajas-project-client-gwt,geomajas-gwt-face-example,org.geomajas,Geomajas GWT client: Main - Example,,1.15.0-M3,/example
-geomajas-project-client-gwt,geomajas-client-gwt-plugin-parent,org.geomajas,Geomajas GWT client: Plugin parent,,1.15.0-M3,/plugin
-geomajas-project-client-gwt,geomajas-client-gwt-plugin-deskmanager-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Deskmanager - Parent,,1.15.0-M3,/plugin/deskmanager 
-geomajas-project-client-gwt,geomajas-plugin-deskmanager-documentation,org.geomajas.plugin,Geomajas GWT client: Plugin Deskmanager – Documentation,,1.15.0-M3,/plugin/deskmanager/deskmanager-documentation
-geomajas-project-client-gwt,geomajas-plugin-deskmanager-gwt,org.geomajas.plugin,Geomajas GWT client: Plugin Deskmanager – GWT,,1.15.0-M3,/plugin/deskmanager/deskmanager-gwt
-geomajas-project-client-gwt,geomajas-client-gwt-plugin-editing-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Editing – Parent,,1.15.0-M3,/plugin/editing
-geomajas-project-client-gwt,geomajas-plugin-editing-gwt-example-jar,org.geomajas.plugin,Geomajas GWT client: Plugin Editing - Example jar,,1.15.0-M3,/plugin/editing/editing-gwt-example-jar
-geomajas-project-client-gwt,geomajas-plugin-editing-gwt-example,org.geomajas.plugin,Geomajas GWT client: Plugin Editing – Example,,1.15.0-M3,/plugin/editing/editing-gwt-example
-geomajas-project-client-gwt,geomajas-plugin-editing-gwt,org.geomajas.plugin,Geomajas GWT client: Plugin Editing – GWT,,1.15.0-M3,/plugin/editing/editing-gwt
-geomajas-project-client-gwt,geomajas-plugin-editing-javascript-api-gwt,org.geomajas.plugin,Geomajas GWT client: Plugin Editing - Javascript API GWT,,1.15.0-M3,/plugin/editing/editing-javascript-api-gwt
-geomajas-project-client-gwt,geomajas-plugin-editing-javascript-api,org.geomajas.plugin,Geomajas GWT client: Plugin Editing - Javascript API,,1.15.0-M3,/plugin/editing/editing-javascript-api
-geomajas-project-client-gwt,geomajas-plugin-editing-javascript-gwt-example,org.geomajas.plugin,Geomajas GWT client: Plugin Editing - Javascript Application,,1.15.0-M3,/plugin/editing/editing-javascript-gwt-example
-geomajas-project-client-gwt,geomajas-client-gwt-plugin-geocoder-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Geocoder – Parent,,1.15.0-M3,/plugin/geocoder
-geomajas-project-client-gwt,geomajas-plugin-geocoder-gwt-example-jar,org.geomajas.plugin,Geomajas GWT client: Plugin Geocoder - Example jar,,1.15.0-M3,/plugin/geocoder/geocoder-gwt-example-jar
-geomajas-project-client-gwt,geomajas-plugin-geocoder-gwt-example,org.geomajas.plugin,Geomajas GWT client: Plugin Geocoder – Example,,1.15.0-M3,/plugin/geocoder/geocoder-gwt-example
-geomajas-project-client-gwt,geomajas-plugin-geocoder-gwt,org.geomajas.plugin,Geomajas GWT client: Plugin Geocoder – GWT,,1.15.0-M3,/plugin/geocoder/geocoder-gwt
-geomajas-project-client-gwt,geomajas-client-gwt-plugin-javascript-api-parent,org.geomajas.plugin,Geomajas GWT client: Plugin JavaScript API – Parent,,1.15.0-M3,/plugin/javascript-api
-geomajas-project-client-gwt,geomajas-plugin-javascript-api-gwt-example,org.geomajas.plugin,Geomajas GWT client: Plugin JavaScript API – Example,,1.15.0-M3,/plugin/javascript-api/javascript-api-gwt-example
-geomajas-project-client-gwt,geomajas-plugin-javascript-api-gwt,org.geomajas.plugin,Geomajas GWT client: Plugin JavaScript API – GWT,,1.15.0-M3,/plugin/javascript-api/javascript-api-gwt
-geomajas-project-client-gwt,geomajas-plugin-javascript-api,org.geomajas.plugin,Geomajas GWT client: Plugin JavaScript API,,1.15.0-M3,/plugin/javascript-api/javascript-api
-geomajas-project-client-gwt,geomajas-client-gwt-layer-geotools-parent,org.geomajas.plugin,Geomajas GWT client: Layer Geotools – Parent,,1.15.0-M3,/plugin/layer-geotools
-geomajas-project-client-gwt,geomajas-layer-geotools-gwt-example-jar,org.geomajas.plugin,Geomajas GWT client: Layer Geotools - Example jar,,1.15.0-M3,/plugin/layer-geotools/geotools-gwt-example-jar
-geomajas-project-client-gwt,geomajas-layer-geotools-gwt-example,org.geomajas.plugin,Geomajas GWT client: Layer Geotools – Example,,1.15.0-M3,/plugin/layer-geotools/geotools-gwt-example
-geomajas-project-client-gwt,geomajas-client-gwt-layer-googlemaps-parent,org.geomajas.plugin,Geomajas GWT client: Layer Google Maps – Parent,,1.15.0-M3,/plugin/layer-googlemaps
-geomajas-project-client-gwt,geomajas-client-gwt-layer-googlemaps-example-jar,org.geomajas.plugin,Geomajas GWT client: Layer Google Maps - Example jar,,1.15.0-M3,/plugin/layer-googlemaps/googlemaps-example-jar
-geomajas-project-client-gwt,geomajas-client-gwt-layer-googlemaps-example,org.geomajas.plugin,Geomajas GWT client: Layer Google Maps – Example,,1.15.0-M3,/plugin/layer-googlemaps/googlemaps-example
-geomajas-project-client-gwt,geomajas-client-gwt-layer-googlemaps,org.geomajas.plugin,Geomajas GWT client: Layer Google Maps - GWT implementation,,1.15.0-M3,/plugin/layer-googlemaps/googlemaps
-geomajas-project-client-gwt,geomajas-client-gwt-layer-wms-parent,org.geomajas.plugin,Geomajas GWT client: Layer Wms – Parent,,1.15.0-M3,/plugin/layer-wms
-geomajas-project-client-gwt,geomajas-layer-wms-gwt-example-jar,org.geomajas.plugin,Geomajas GWT client: Layer Wms - Example jar,,1.15.0-M3,/plugin/layer-wms/wms-gwt-example-jar
-geomajas-project-client-gwt,geomajas-layer-wms-gwt-example,org.geomajas.plugin,Geomajas GWT client: Layer Wms – Example,,1.15.0-M3,/plugin/layer-wms/wms-gwt-example
-geomajas-project-client-gwt,geomajas-layer-wms-gwt,org.geomajas.plugin,Geomajas GWT client: Layer Wms – Parent,,1.15.0-M3,/plugin/layer-wms/wms-gwt
-geomajas-project-client-gwt,geomajas-client-gwt-plugin-print-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Print – Parent,,1.15.0-M3,/plugin/print
-geomajas-project-client-gwt,geomajas-client-gwt-plugin-print-example-jar,org.geomajas.plugin,Geomajas GWT client: Plugin Print - Example jar,,1.15.0-M3,/plugin/print/print-gwt-example-jar
-geomajas-project-client-gwt,geomajas-client-gwt-plugin-print-example,org.geomajas.plugin,Geomajas GWT client: Plugin Print – Example,,1.15.0-M3,/plugin/print/print-gwt-example
-geomajas-project-client-gwt,geomajas-plugin-print-gwt,org.geomajas.plugin,Geomajas GWT client: Plugin Print – GWT,,1.15.0-M3,/plugin/print/print-gwt
-geomajas-project-client-gwt,geomajas-client-gwt-plugin-rasterizing-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Rasterizing – Parent,,1.15.0-M3,/plugin/rasterizing
-geomajas-project-client-gwt,geomajas-plugin-rasterizing-gwt-example-jar,org.geomajas.plugin,Geomajas GWT client: Plugin Rasterizing - Example jar,,1.15.0-M3,/plugin/rasterizing/rasterizing-gwt-example-jar
-geomajas-project-client-gwt,geomajas-plugin-rasterizing-gwt-example,org.geomajas.plugin,Geomajas GWT client: Plugin Rasterizing – Example,,1.15.0-M3,/plugin/rasterizing/rasterizing-gwt-example
-geomajas-project-client-gwt,geomajas-plugin-rasterizing-gwt,org.geomajas.plugin,Geomajas GWT client: Plugin Rasterizing – Gwt,,1.15.0-M3,/plugin/rasterizing/rasterizing-gwt
-geomajas-project-client-gwt,geomajas-client-gwt-plugin-reporting-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Reporting – Parent,,1.15.0-M3,/plugin/reporting
-geomajas-project-client-gwt,geomajas-plugin-reporting-gwt-example,org.geomajas.plugin,Geomajas GWT client: Plugin Reporting – Example,,1.15.0-M3,/plugin/reporting/reporting-gwt-example
-geomajas-project-client-gwt,geomajas-plugin-reporting-gwt,org.geomajas.plugin,Geomajas GWT client: Plugin Reporting – GWT,,1.15.0-M3,/plugin/reporting/reporting-gwt
-geomajas-project-client-gwt,geomajas-client-gwt-plugin-runtimeconfig-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Runtimeconfig – Parent,,1.15.0-M3,/plugin/runtimeconfig
-geomajas-project-client-gwt,geomajas-plugin-runtimeconfig-gwt-example-jar,org.geomajas.plugin,Geomajas GWT client: Plugin Runtimeconfig - Example jar,,1.15.0-M3,/plugin/runtimeconfig/runtimeconfig-gwt-example-jar
-geomajas-project-client-gwt,geomajas-plugin-runtimeconfig-gwt-example,org.geomajas.plugin,Geomajas GWT client: Plugin Runtimeconfig – Example,,1.15.0-M3,/plugin/runtimeconfig/runtimeconfig-gwt-example
-geomajas-project-client-gwt,geomajas-plugin-runtimeconfig-gwt,org.geomajas.plugin,Geomajas GWT client: Plugin Runtimeconfig – GWT,,1.15.0-M3,/plugin/runtimeconfig/runtimeconfig-gwt
-geomajas-project-client-gwt,geomajas-client-gwt-plugin-staticsecurity-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Staticsecurity – Parent,,1.15.0-M3,/plugin/staticsecurity
-geomajas-project-client-gwt,geomajas-plugin-staticsecurity-gwt-example,org.geomajas.plugin,Geomajas GWT client: Plugin Staticsecurity – Example,,1.15.0-M3,/plugin/staticsecurity/staticsecurity-gwt-example
-geomajas-project-client-gwt,geomajas-plugin-staticsecurity-gwt,org.geomajas.plugin,Geomajas GWT client: Plugin Staticsecurity – GWT,,1.15.0-M3,/plugin/staticsecurity/staticsecurity-gwt
-geomajas-project-client-gwt,geomajas-client-gwt-plugin-vendorspecificpipeline-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Vendorspecificpipeline – Parent,,1.15.0-M3,/plugin/vendorspecificpipeline
-geomajas-project-client-gwt,geomajas-plugin-vendorspecificpipeline-gwt-example-jar,org.geomajas.plugin,Geomajas GWT client: Plugin Vendorspecificpipeline - Example jar,,1.15.0-M3,/plugin/vendorspecificpipeline/vendorspecificpipeline-gwt-example-jar
-geomajas-project-client-gwt,geomajas-plugin-vendorspecificpipeline-gwt-example,org.geomajas.plugin,Geomajas GWT client: Plugin Vendorspecificpipeline – Example,,1.15.0-M3,/plugin/vendorspecificpipeline/vendorspecificpipeline-gwt-example
-geomajas-project-client-gwt,geomajas-client-gwt-widget-advancedviews-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Widget Advancedviews – Parent,,1.15.0-M3,/plugin/widget-advancedviews
-geomajas-project-client-gwt,geomajas-widget-advancedviews-documentation,org.geomajas.widget,Geomajas GWT client: Plugin Widget Advancedviews – Documentation,,1.15.0-M3,/plugin/widget-advancedviews/advancedviews-documentation
-geomajas-project-client-gwt,geomajas-widget-advancedviews-editor,org.geomajas.widget,Geomajas GWT client: Plugin Widget Advancedviews - Deskmanager Editor,,1.15.0-M3,/plugin/widget-advancedviews/advancedviews-editor
-geomajas-project-client-gwt,geomajas-widget-advancedviews-gwt-example,org.geomajas.widget,Geomajas GWT client: Plugin Widget Advancedviews – Example,,1.15.0-M3,/plugin/widget-advancedviews/advancedviews-gwt-example
-geomajas-project-client-gwt,geomajas-widget-advancedviews-gwt,org.geomajas.widget,Geomajas GWT client: Plugin Widget Advancedviews – GWT,,1.15.0-M3,/plugin/widget-advancedviews/advancedviews-gwt
-geomajas-project-client-gwt,geomajas-widget-advancedviews,org.geomajas.widget,Geomajas GWT client: Plugin Widget Advancedviews – Server,,1.15.0-M3,/plugin/widget-advancedviews/advancedviews
-geomajas-project-client-gwt,geomajas-client-gwt-widget-featureinfo-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Widget Featureinfo – Parent,,1.15.0-M3,/plugin/widget-featureinfo
-geomajas-project-client-gwt,geomajas-widget-featureinfo-documentation,org.geomajas.widget,Geomajas GWT client: Plugin Widget Featureinfo – Documentation,,1.15.0-M3,/plugin/widget-featureinfo/featureinfo-documentation
-geomajas-project-client-gwt,geomajas-widget-featureinfo-gwt-example-jar,org.geomajas.widget,Geomajas GWT client: Plugin Widget Featureinfo - Example jar,,1.15.0-M3,/plugin/widget-featureinfo/featureinfo-gwt-example-jar
-geomajas-project-client-gwt,geomajas-widget-featureinfo-gwt-example,org.geomajas.widget,Geomajas GWT client: Plugin Widget Featureinfo – Example,,1.15.0-M3,/plugin/widget-featureinfo/featureinfo-gwt-example
-geomajas-project-client-gwt,geomajas-widget-featureinfo-gwt,org.geomajas.widget,Geomajas GWT client: Plugin Widget Featureinfo – GWT,,1.15.0-M3,/plugin/widget-featureinfo/featureinfo-gwt
-geomajas-project-client-gwt,geomajas-widget-featureinfo,org.geomajas.widget,Geomajas GWT client: Plugin Widget Featureinfo – Server,,1.15.0-M3,/plugin/widget-featureinfo/featureinfo
-geomajas-project-client-gwt,geomajas-client-gwt-widget-layer-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Widget Layer – Parent,,1.15.0-M3,/plugin/widget-layer
-geomajas-project-client-gwt,geomajas-widget-layer-documentation,org.geomajas.widget,Geomajas GWT client: Plugin Widget Layer – Documentation,,1.15.0-M3,/plugin/widget-layer/layer-documentation
-geomajas-project-client-gwt,geomajas-widget-layer-editor,org.geomajas.widget,Geomajas GWT client: Plugin Widget Layer - Deskmanager Editor,,1.15.0-M3,/plugin/widget-layer/layer-editor
-geomajas-project-client-gwt,geomajas-widget-layer-gwt-example-jar,org.geomajas.widget,Geomajas GWT client: Plugin Widget Layer - Example jar,,1.15.0-M3,/plugin/widget-layer/layer-gwt-example-jar
-geomajas-project-client-gwt,geomajas-widget-layer-gwt-example,org.geomajas.widget,Geomajas GWT client: Plugin Widget Layer – Example,,1.15.0-M3,/plugin/widget-layer/layer-gwt-example
-geomajas-project-client-gwt,geomajas-widget-layer-gwt,org.geomajas.widget,Geomajas GWT client: Plugin Widget Layer – GWT,,1.15.0-M3,/plugin/widget-layer/layer-gwt
-geomajas-project-client-gwt,geomajas-widget-layer,org.geomajas.widget,Geomajas GWT client: Plugin Widget Layer – Server,,1.15.0-M3,/plugin/widget-layer/layer
-geomajas-project-client-gwt,geomajas-client-gwt-widget-searchandfilter-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Searchandfilter – Parent,,1.15.0-M3,/plugin/widget-searchandfilter
-geomajas-project-client-gwt,geomajas-widget-searchandfilter-documentation,org.geomajas.widget,Geomajas GWT client: Plugin Searchandfilter – Documentation,,1.15.0-M3,/plugin/widget-searchandfilter/searchandfilter-documentation
-geomajas-project-client-gwt,geomajas-widget-searchandfilter-editor,org.geomajas.widget,Geomajas GWT client: Plugin Searchandfilter - Deskmanager Editor,,1.15.0-M3,/plugin/widget-searchandfilter/searchandfilter-editor
-geomajas-project-client-gwt,geomajas-widget-searchandfilter-gwt-example,org.geomajas.widget,Geomajas GWT client: Plugin Searchandfilter – Example,,1.15.0-M3,/plugin/widget-searchandfilter/searchandfilter-gwt-example
-geomajas-project-client-gwt,geomajas-widget-searchandfilter-gwt,org.geomajas.widget,Geomajas GWT client: Plugin Searchandfilter – GWT,,1.15.0-M3,/plugin/widget-searchandfilter/searchandfilter-gwt
-geomajas-project-client-gwt,geomajas-widget-searchandfilter-ribbon-gwt,org.geomajas.widget,Geomajas GWT client: Plugin Searchandfilter - Ribbon GWT,,1.15.0-M3,/plugin/widget-searchandfilter/searchandfilter-ribbon-gwt
-geomajas-project-client-gwt,geomajas-widget-searchandfilter,org.geomajas.widget,Geomajas GWT client: Plugin Searchandfilter – Server,,1.15.0-M3,/plugin/widget-searchandfilter/searchandfilter
-geomajas-project-client-gwt,geomajas-client-gwt-widget-utility-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Widget Utility – Parent,,1.15.0-M3,/plugin/widget-utility
-geomajas-project-client-gwt,geomajas-widget-utility-common-gwt,org.geomajas.widget,Geomajas GWT client: Plugin Widget Utility – Common,,1.15.0-M3,/plugin/widget-utility/utility-common-gwt
-geomajas-project-client-gwt,geomajas-widget-utility-documentation,org.geomajas.widget,Geomajas GWT client: Plugin Widget Utility – Documentation,,1.15.0-M3,/plugin/widget-utility/utility-documentation
-geomajas-project-client-gwt,geomajas-widget-utility-gwt-example-jar,org.geomajas.widget,Geomajas GWT client: Plugin Widget Utility - Example jar,,1.15.0-M3,/plugin/widget-utility/utility-gwt-example-jar
-geomajas-project-client-gwt,geomajas-widget-utility-gwt-example,org.geomajas.widget,Geomajas GWT client: Plugin Widget Utility – Example,,1.15.0-M3,/plugin/widget-utility/utility-gwt-example
-geomajas-project-client-gwt,geomajas-widget-utility-gwt,org.geomajas.widget,Geomajas GWT client: Plugin Widget Utility – GWT,,1.15.0-M3,/plugin/widget-utility/utility-gwt
-geomajas-project-client-gwt,geomajas-widget-utility,org.geomajas.widget,Geomajas GWT client: Plugin Widget Utility – Server,,1.15.0-M3,/plugin/widget-utility/utility
-geomajas-project-client-gwt,geomajas-client-gwt-smartgwt-archetype-documentation,org.geomajas.project,Geomajas GWT client: Main - Widget Archetype documentation,,1.15.0-M3,/smartgwt-archetype-documentation
-geomajas-project-client-gwt,geomajas-client-gwt-smartgwt-archetype,org.geomajas,Geomajas GWT client: Main - GWT Archetype,,1.15.0-M3,/smartgwt-archetype
+geomajas-project-client-gwt,geomajas-project-client-gwt,org.geomajas.project,Geomajas GWT client: Main - Parent POM,,1.15.0-M4,/
+geomajas-project-client-gwt,geomajas-gwt-archetype,org.geomajas,Geomajas GWT client: Main - Archetype,,1.15.0-M4,/archetype
+geomajas-project-client-gwt,geomajas-gwt-client,org.geomajas,Geomajas GWT client: Main - Implementation,,1.15.0-M4,/client
+geomajas-project-client-gwt,geomajas-client-common-gwt-smartgwt,org.geomajas,Geomajas GWT client: Commons - Library,,1.15.0-M4,/common-gwt-smartgwt
+geomajas-project-client-gwt,geomajas-face-gwt-documentation,org.geomajas,Geomajas GWT client: Main - Documentation,,1.15.0-M4,/documentation
+geomajas-project-client-gwt,geomajas-gwt-example-base,org.geomajas,Geomajas GWT client: Main - Example base,,1.15.0-M4,/example-base
+geomajas-project-client-gwt,geomajas-gwt-face-example-jar,org.geomajas,Geomajas GWT client: Main - Example jar,,1.15.0-M4,/example-jar
+geomajas-project-client-gwt,geomajas-gwt-face-example,org.geomajas,Geomajas GWT client: Main - Example,,1.15.0-M4,/example
+geomajas-project-client-gwt,geomajas-client-gwt-plugin-parent,org.geomajas,Geomajas GWT client: Plugin parent,,1.15.0-M4,/plugin
+geomajas-project-client-gwt,geomajas-client-gwt-plugin-deskmanager-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Deskmanager - Parent,,1.15.0-M4,/plugin/deskmanager 
+geomajas-project-client-gwt,geomajas-plugin-deskmanager-documentation,org.geomajas.plugin,Geomajas GWT client: Plugin Deskmanager – Documentation,,1.15.0-M4,/plugin/deskmanager/deskmanager-documentation
+geomajas-project-client-gwt,geomajas-plugin-deskmanager-gwt,org.geomajas.plugin,Geomajas GWT client: Plugin Deskmanager – GWT,,1.15.0-M4,/plugin/deskmanager/deskmanager-gwt
+geomajas-project-client-gwt,geomajas-client-gwt-plugin-editing-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Editing – Parent,,1.15.0-M4,/plugin/editing
+geomajas-project-client-gwt,geomajas-plugin-editing-gwt-example-jar,org.geomajas.plugin,Geomajas GWT client: Plugin Editing - Example jar,,1.15.0-M4,/plugin/editing/editing-gwt-example-jar
+geomajas-project-client-gwt,geomajas-plugin-editing-gwt-example,org.geomajas.plugin,Geomajas GWT client: Plugin Editing – Example,,1.15.0-M4,/plugin/editing/editing-gwt-example
+geomajas-project-client-gwt,geomajas-plugin-editing-gwt,org.geomajas.plugin,Geomajas GWT client: Plugin Editing – GWT,,1.15.0-M4,/plugin/editing/editing-gwt
+geomajas-project-client-gwt,geomajas-plugin-editing-javascript-api-gwt,org.geomajas.plugin,Geomajas GWT client: Plugin Editing - Javascript API GWT,,1.15.0-M4,/plugin/editing/editing-javascript-api-gwt
+geomajas-project-client-gwt,geomajas-plugin-editing-javascript-api,org.geomajas.plugin,Geomajas GWT client: Plugin Editing - Javascript API,,1.15.0-M4,/plugin/editing/editing-javascript-api
+geomajas-project-client-gwt,geomajas-plugin-editing-javascript-gwt-example,org.geomajas.plugin,Geomajas GWT client: Plugin Editing - Javascript Application,,1.15.0-M4,/plugin/editing/editing-javascript-gwt-example
+geomajas-project-client-gwt,geomajas-client-gwt-plugin-geocoder-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Geocoder – Parent,,1.15.0-M4,/plugin/geocoder
+geomajas-project-client-gwt,geomajas-plugin-geocoder-gwt-example-jar,org.geomajas.plugin,Geomajas GWT client: Plugin Geocoder - Example jar,,1.15.0-M4,/plugin/geocoder/geocoder-gwt-example-jar
+geomajas-project-client-gwt,geomajas-plugin-geocoder-gwt-example,org.geomajas.plugin,Geomajas GWT client: Plugin Geocoder – Example,,1.15.0-M4,/plugin/geocoder/geocoder-gwt-example
+geomajas-project-client-gwt,geomajas-plugin-geocoder-gwt,org.geomajas.plugin,Geomajas GWT client: Plugin Geocoder – GWT,,1.15.0-M4,/plugin/geocoder/geocoder-gwt
+geomajas-project-client-gwt,geomajas-client-gwt-plugin-javascript-api-parent,org.geomajas.plugin,Geomajas GWT client: Plugin JavaScript API – Parent,,1.15.0-M4,/plugin/javascript-api
+geomajas-project-client-gwt,geomajas-plugin-javascript-api-gwt-example,org.geomajas.plugin,Geomajas GWT client: Plugin JavaScript API – Example,,1.15.0-M4,/plugin/javascript-api/javascript-api-gwt-example
+geomajas-project-client-gwt,geomajas-plugin-javascript-api-gwt,org.geomajas.plugin,Geomajas GWT client: Plugin JavaScript API – GWT,,1.15.0-M4,/plugin/javascript-api/javascript-api-gwt
+geomajas-project-client-gwt,geomajas-plugin-javascript-api,org.geomajas.plugin,Geomajas GWT client: Plugin JavaScript API,,1.15.0-M4,/plugin/javascript-api/javascript-api
+geomajas-project-client-gwt,geomajas-client-gwt-layer-geotools-parent,org.geomajas.plugin,Geomajas GWT client: Layer Geotools – Parent,,1.15.0-M4,/plugin/layer-geotools
+geomajas-project-client-gwt,geomajas-layer-geotools-gwt-example-jar,org.geomajas.plugin,Geomajas GWT client: Layer Geotools - Example jar,,1.15.0-M4,/plugin/layer-geotools/geotools-gwt-example-jar
+geomajas-project-client-gwt,geomajas-layer-geotools-gwt-example,org.geomajas.plugin,Geomajas GWT client: Layer Geotools – Example,,1.15.0-M4,/plugin/layer-geotools/geotools-gwt-example
+geomajas-project-client-gwt,geomajas-client-gwt-layer-googlemaps-parent,org.geomajas.plugin,Geomajas GWT client: Layer Google Maps – Parent,,1.15.0-M4,/plugin/layer-googlemaps
+geomajas-project-client-gwt,geomajas-client-gwt-layer-googlemaps-example-jar,org.geomajas.plugin,Geomajas GWT client: Layer Google Maps - Example jar,,1.15.0-M4,/plugin/layer-googlemaps/googlemaps-example-jar
+geomajas-project-client-gwt,geomajas-client-gwt-layer-googlemaps-example,org.geomajas.plugin,Geomajas GWT client: Layer Google Maps – Example,,1.15.0-M4,/plugin/layer-googlemaps/googlemaps-example
+geomajas-project-client-gwt,geomajas-client-gwt-layer-googlemaps,org.geomajas.plugin,Geomajas GWT client: Layer Google Maps - GWT implementation,,1.15.0-M4,/plugin/layer-googlemaps/googlemaps
+geomajas-project-client-gwt,geomajas-client-gwt-layer-wms-parent,org.geomajas.plugin,Geomajas GWT client: Layer Wms – Parent,,1.15.0-M4,/plugin/layer-wms
+geomajas-project-client-gwt,geomajas-layer-wms-gwt-example-jar,org.geomajas.plugin,Geomajas GWT client: Layer Wms - Example jar,,1.15.0-M4,/plugin/layer-wms/wms-gwt-example-jar
+geomajas-project-client-gwt,geomajas-layer-wms-gwt-example,org.geomajas.plugin,Geomajas GWT client: Layer Wms – Example,,1.15.0-M4,/plugin/layer-wms/wms-gwt-example
+geomajas-project-client-gwt,geomajas-layer-wms-gwt,org.geomajas.plugin,Geomajas GWT client: Layer Wms – Parent,,1.15.0-M4,/plugin/layer-wms/wms-gwt
+geomajas-project-client-gwt,geomajas-client-gwt-plugin-print-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Print – Parent,,1.15.0-M4,/plugin/print
+geomajas-project-client-gwt,geomajas-client-gwt-plugin-print-example-jar,org.geomajas.plugin,Geomajas GWT client: Plugin Print - Example jar,,1.15.0-M4,/plugin/print/print-gwt-example-jar
+geomajas-project-client-gwt,geomajas-client-gwt-plugin-print-example,org.geomajas.plugin,Geomajas GWT client: Plugin Print – Example,,1.15.0-M4,/plugin/print/print-gwt-example
+geomajas-project-client-gwt,geomajas-plugin-print-gwt,org.geomajas.plugin,Geomajas GWT client: Plugin Print – GWT,,1.15.0-M4,/plugin/print/print-gwt
+geomajas-project-client-gwt,geomajas-client-gwt-plugin-rasterizing-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Rasterizing – Parent,,1.15.0-M4,/plugin/rasterizing
+geomajas-project-client-gwt,geomajas-plugin-rasterizing-gwt-example-jar,org.geomajas.plugin,Geomajas GWT client: Plugin Rasterizing - Example jar,,1.15.0-M4,/plugin/rasterizing/rasterizing-gwt-example-jar
+geomajas-project-client-gwt,geomajas-plugin-rasterizing-gwt-example,org.geomajas.plugin,Geomajas GWT client: Plugin Rasterizing – Example,,1.15.0-M4,/plugin/rasterizing/rasterizing-gwt-example
+geomajas-project-client-gwt,geomajas-plugin-rasterizing-gwt,org.geomajas.plugin,Geomajas GWT client: Plugin Rasterizing – Gwt,,1.15.0-M4,/plugin/rasterizing/rasterizing-gwt
+geomajas-project-client-gwt,geomajas-client-gwt-plugin-reporting-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Reporting – Parent,,1.15.0-M4,/plugin/reporting
+geomajas-project-client-gwt,geomajas-plugin-reporting-gwt-example,org.geomajas.plugin,Geomajas GWT client: Plugin Reporting – Example,,1.15.0-M4,/plugin/reporting/reporting-gwt-example
+geomajas-project-client-gwt,geomajas-plugin-reporting-gwt,org.geomajas.plugin,Geomajas GWT client: Plugin Reporting – GWT,,1.15.0-M4,/plugin/reporting/reporting-gwt
+geomajas-project-client-gwt,geomajas-client-gwt-plugin-runtimeconfig-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Runtimeconfig – Parent,,1.15.0-M4,/plugin/runtimeconfig
+geomajas-project-client-gwt,geomajas-plugin-runtimeconfig-gwt-example-jar,org.geomajas.plugin,Geomajas GWT client: Plugin Runtimeconfig - Example jar,,1.15.0-M4,/plugin/runtimeconfig/runtimeconfig-gwt-example-jar
+geomajas-project-client-gwt,geomajas-plugin-runtimeconfig-gwt-example,org.geomajas.plugin,Geomajas GWT client: Plugin Runtimeconfig – Example,,1.15.0-M4,/plugin/runtimeconfig/runtimeconfig-gwt-example
+geomajas-project-client-gwt,geomajas-plugin-runtimeconfig-gwt,org.geomajas.plugin,Geomajas GWT client: Plugin Runtimeconfig – GWT,,1.15.0-M4,/plugin/runtimeconfig/runtimeconfig-gwt
+geomajas-project-client-gwt,geomajas-client-gwt-plugin-staticsecurity-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Staticsecurity – Parent,,1.15.0-M4,/plugin/staticsecurity
+geomajas-project-client-gwt,geomajas-plugin-staticsecurity-gwt-example,org.geomajas.plugin,Geomajas GWT client: Plugin Staticsecurity – Example,,1.15.0-M4,/plugin/staticsecurity/staticsecurity-gwt-example
+geomajas-project-client-gwt,geomajas-plugin-staticsecurity-gwt,org.geomajas.plugin,Geomajas GWT client: Plugin Staticsecurity – GWT,,1.15.0-M4,/plugin/staticsecurity/staticsecurity-gwt
+geomajas-project-client-gwt,geomajas-client-gwt-plugin-vendorspecificpipeline-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Vendorspecificpipeline – Parent,,1.15.0-M4,/plugin/vendorspecificpipeline
+geomajas-project-client-gwt,geomajas-plugin-vendorspecificpipeline-gwt-example-jar,org.geomajas.plugin,Geomajas GWT client: Plugin Vendorspecificpipeline - Example jar,,1.15.0-M4,/plugin/vendorspecificpipeline/vendorspecificpipeline-gwt-example-jar
+geomajas-project-client-gwt,geomajas-plugin-vendorspecificpipeline-gwt-example,org.geomajas.plugin,Geomajas GWT client: Plugin Vendorspecificpipeline – Example,,1.15.0-M4,/plugin/vendorspecificpipeline/vendorspecificpipeline-gwt-example
+geomajas-project-client-gwt,geomajas-client-gwt-widget-advancedviews-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Widget Advancedviews – Parent,,1.15.0-M4,/plugin/widget-advancedviews
+geomajas-project-client-gwt,geomajas-widget-advancedviews-documentation,org.geomajas.widget,Geomajas GWT client: Plugin Widget Advancedviews – Documentation,,1.15.0-M4,/plugin/widget-advancedviews/advancedviews-documentation
+geomajas-project-client-gwt,geomajas-widget-advancedviews-editor,org.geomajas.widget,Geomajas GWT client: Plugin Widget Advancedviews - Deskmanager Editor,,1.15.0-M4,/plugin/widget-advancedviews/advancedviews-editor
+geomajas-project-client-gwt,geomajas-widget-advancedviews-gwt-example,org.geomajas.widget,Geomajas GWT client: Plugin Widget Advancedviews – Example,,1.15.0-M4,/plugin/widget-advancedviews/advancedviews-gwt-example
+geomajas-project-client-gwt,geomajas-widget-advancedviews-gwt,org.geomajas.widget,Geomajas GWT client: Plugin Widget Advancedviews – GWT,,1.15.0-M4,/plugin/widget-advancedviews/advancedviews-gwt
+geomajas-project-client-gwt,geomajas-widget-advancedviews,org.geomajas.widget,Geomajas GWT client: Plugin Widget Advancedviews – Server,,1.15.0-M4,/plugin/widget-advancedviews/advancedviews
+geomajas-project-client-gwt,geomajas-client-gwt-widget-featureinfo-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Widget Featureinfo – Parent,,1.15.0-M4,/plugin/widget-featureinfo
+geomajas-project-client-gwt,geomajas-widget-featureinfo-documentation,org.geomajas.widget,Geomajas GWT client: Plugin Widget Featureinfo – Documentation,,1.15.0-M4,/plugin/widget-featureinfo/featureinfo-documentation
+geomajas-project-client-gwt,geomajas-widget-featureinfo-gwt-example-jar,org.geomajas.widget,Geomajas GWT client: Plugin Widget Featureinfo - Example jar,,1.15.0-M4,/plugin/widget-featureinfo/featureinfo-gwt-example-jar
+geomajas-project-client-gwt,geomajas-widget-featureinfo-gwt-example,org.geomajas.widget,Geomajas GWT client: Plugin Widget Featureinfo – Example,,1.15.0-M4,/plugin/widget-featureinfo/featureinfo-gwt-example
+geomajas-project-client-gwt,geomajas-widget-featureinfo-gwt,org.geomajas.widget,Geomajas GWT client: Plugin Widget Featureinfo – GWT,,1.15.0-M4,/plugin/widget-featureinfo/featureinfo-gwt
+geomajas-project-client-gwt,geomajas-widget-featureinfo,org.geomajas.widget,Geomajas GWT client: Plugin Widget Featureinfo – Server,,1.15.0-M4,/plugin/widget-featureinfo/featureinfo
+geomajas-project-client-gwt,geomajas-client-gwt-widget-layer-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Widget Layer – Parent,,1.15.0-M4,/plugin/widget-layer
+geomajas-project-client-gwt,geomajas-widget-layer-documentation,org.geomajas.widget,Geomajas GWT client: Plugin Widget Layer – Documentation,,1.15.0-M4,/plugin/widget-layer/layer-documentation
+geomajas-project-client-gwt,geomajas-widget-layer-editor,org.geomajas.widget,Geomajas GWT client: Plugin Widget Layer - Deskmanager Editor,,1.15.0-M4,/plugin/widget-layer/layer-editor
+geomajas-project-client-gwt,geomajas-widget-layer-gwt-example-jar,org.geomajas.widget,Geomajas GWT client: Plugin Widget Layer - Example jar,,1.15.0-M4,/plugin/widget-layer/layer-gwt-example-jar
+geomajas-project-client-gwt,geomajas-widget-layer-gwt-example,org.geomajas.widget,Geomajas GWT client: Plugin Widget Layer – Example,,1.15.0-M4,/plugin/widget-layer/layer-gwt-example
+geomajas-project-client-gwt,geomajas-widget-layer-gwt,org.geomajas.widget,Geomajas GWT client: Plugin Widget Layer – GWT,,1.15.0-M4,/plugin/widget-layer/layer-gwt
+geomajas-project-client-gwt,geomajas-widget-layer,org.geomajas.widget,Geomajas GWT client: Plugin Widget Layer – Server,,1.15.0-M4,/plugin/widget-layer/layer
+geomajas-project-client-gwt,geomajas-client-gwt-widget-searchandfilter-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Searchandfilter – Parent,,1.15.0-M4,/plugin/widget-searchandfilter
+geomajas-project-client-gwt,geomajas-widget-searchandfilter-documentation,org.geomajas.widget,Geomajas GWT client: Plugin Searchandfilter – Documentation,,1.15.0-M4,/plugin/widget-searchandfilter/searchandfilter-documentation
+geomajas-project-client-gwt,geomajas-widget-searchandfilter-editor,org.geomajas.widget,Geomajas GWT client: Plugin Searchandfilter - Deskmanager Editor,,1.15.0-M4,/plugin/widget-searchandfilter/searchandfilter-editor
+geomajas-project-client-gwt,geomajas-widget-searchandfilter-gwt-example,org.geomajas.widget,Geomajas GWT client: Plugin Searchandfilter – Example,,1.15.0-M4,/plugin/widget-searchandfilter/searchandfilter-gwt-example
+geomajas-project-client-gwt,geomajas-widget-searchandfilter-gwt,org.geomajas.widget,Geomajas GWT client: Plugin Searchandfilter – GWT,,1.15.0-M4,/plugin/widget-searchandfilter/searchandfilter-gwt
+geomajas-project-client-gwt,geomajas-widget-searchandfilter-ribbon-gwt,org.geomajas.widget,Geomajas GWT client: Plugin Searchandfilter - Ribbon GWT,,1.15.0-M4,/plugin/widget-searchandfilter/searchandfilter-ribbon-gwt
+geomajas-project-client-gwt,geomajas-widget-searchandfilter,org.geomajas.widget,Geomajas GWT client: Plugin Searchandfilter – Server,,1.15.0-M4,/plugin/widget-searchandfilter/searchandfilter
+geomajas-project-client-gwt,geomajas-client-gwt-widget-utility-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Widget Utility – Parent,,1.15.0-M4,/plugin/widget-utility
+geomajas-project-client-gwt,geomajas-widget-utility-common-gwt,org.geomajas.widget,Geomajas GWT client: Plugin Widget Utility – Common,,1.15.0-M4,/plugin/widget-utility/utility-common-gwt
+geomajas-project-client-gwt,geomajas-widget-utility-documentation,org.geomajas.widget,Geomajas GWT client: Plugin Widget Utility – Documentation,,1.15.0-M4,/plugin/widget-utility/utility-documentation
+geomajas-project-client-gwt,geomajas-widget-utility-gwt-example-jar,org.geomajas.widget,Geomajas GWT client: Plugin Widget Utility - Example jar,,1.15.0-M4,/plugin/widget-utility/utility-gwt-example-jar
+geomajas-project-client-gwt,geomajas-widget-utility-gwt-example,org.geomajas.widget,Geomajas GWT client: Plugin Widget Utility – Example,,1.15.0-M4,/plugin/widget-utility/utility-gwt-example
+geomajas-project-client-gwt,geomajas-widget-utility-gwt,org.geomajas.widget,Geomajas GWT client: Plugin Widget Utility – GWT,,1.15.0-M4,/plugin/widget-utility/utility-gwt
+geomajas-project-client-gwt,geomajas-widget-utility,org.geomajas.widget,Geomajas GWT client: Plugin Widget Utility – Server,,1.15.0-M4,/plugin/widget-utility/utility
+geomajas-project-client-gwt,geomajas-client-gwt-smartgwt-archetype-documentation,org.geomajas.project,Geomajas GWT client: Main - Widget Archetype documentation,,1.15.0-M4,/smartgwt-archetype-documentation
+geomajas-project-client-gwt,geomajas-client-gwt-smartgwt-archetype,org.geomajas,Geomajas GWT client: Main - GWT Archetype,,1.15.0-M4,/smartgwt-archetype
 geomajas-project-javascript,geomajas-project-javascript-all,org.geomajas.project,Geomajas Project JavaScript – All,,,/
 geomajas-project-javascript,geomajas-project-javascript-api,org.geomajas.project,Geomajas Project JavaScript – API,,,/api
 geomajas-project-javascript,geomajas-project-javascript-common,org.geomajas.project,Geomajas Project JavaScript – Common,,,/common
