@@ -41,6 +41,7 @@
 		<module>geomajas-checkstyle</module>
 		<module>geomajas-jetty-runner</module>
 		<module>geomajas-maven-plugin</module>
+		<module>geomajas-jdocbook-style</module>
 		<!--<module>geomajas-dep</module>-->
 	</modules>
 
