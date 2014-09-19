@@ -232,14 +232,14 @@ geomajas-project-graphics,geomajas-project-graphics-all,org.geomajas.project,Geo
 geomajas-project-graphics,geomajas-project-graphics-documentation,org.geomajas.documentation,Geomajas Graphics documentation,,1.0.0-M3,/documentation
 geomajas-project-graphics,geomajas-project-graphics-example,org.geomajas.project,Geomajas Graphics example,,1.0.0-M3,/example
 geomajas-project-graphics,geomajas-project-graphics-all,org.geomajas.project,Geomajas Graphics,,1.0.0-M3,/graphics
-geomajas-project-documentation,docbook,org.geomajas.documentation,Geomajas documentation,1.11.0,,/
-geomajas-project-documentation,docbook-contributorguide,org.geomajas.documentation,Contributor Guide,1.11.0,,/contributorguide
-geomajas-project-documentation,docbook-devuserguide,org.geomajas.documentation,User Guide for Developers,1.11.0,,/devuserguide
-geomajas-project-documentation,application.gwt2.archetype,org.geomajas.documentation,GWT2 Example Application Guide,1.11.0,,/enduserguide-application-gwt2
-geomajas-project-documentation,application.smartgwt.archetype,org.geomajas.documentation,SmartGWT Example Application Guide,1.11.0,,/enduserguide-application-smartgwt
-geomajas-project-documentation,docbook-enduserguide,org.geomajas.documentation,User Guide for End Users,1.11.0,,/enduserguide
-geomajas-project-documentation,docbook-gettingstarted,org.geomajas.documentation,Getting started,1.11.0,,/gettingstarted
-geomajas-project-documentation,geomajas-jdocbook-style,org.geomajas.documentation,JDocBook styles for User Guide for Developers,1.11.0,,/style
+geomajas-project-documentation,docbook,org.geomajas.documentation,Geomajas documentation,1.12.0,,/
+geomajas-project-documentation,docbook-contributorguide,org.geomajas.documentation,Contributor Guide,1.12.0,,/contributorguide
+geomajas-project-documentation,docbook-devuserguide,org.geomajas.documentation,User Guide for Developers,1.12.0,,/devuserguide
+geomajas-project-documentation,application.gwt2.archetype,org.geomajas.documentation,GWT2 Example Application Guide,1.12.0,,/enduserguide-application-gwt2
+geomajas-project-documentation,application.smartgwt.archetype,org.geomajas.documentation,SmartGWT Example Application Guide,1.12.0,,/enduserguide-application-smartgwt
+geomajas-project-documentation,docbook-enduserguide,org.geomajas.documentation,User Guide for End Users,1.12.0,,/enduserguide
+geomajas-project-documentation,docbook-gettingstarted,org.geomajas.documentation,Getting started,1.12.0,,/gettingstarted
+geomajas-project-documentation,geomajas-jdocbook-style,org.geomajas.documentation,JDocBook styles for User Guide for Developers,1.12.0,,/style
 geomajas-project-geometry,geomajas-project-geometry-all,org.geomajas.project,Geomajas Geometry Project,1.3.0,,/
 geomajas-project-geometry,geomajas-project-geometry-core,org.geomajas.project,Geomajas Geometry core,1.3.0,,/core
 geomajas-project-geometry,geomajas-project-geometry-documentation,org.geomajas.project,Geomajas Geometry documentation,1.3.0,,/documentation
