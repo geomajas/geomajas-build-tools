@@ -103,6 +103,7 @@ geomajas-project-javascript,geomajas-project-javascript-gwt2-example,org.geomaja
 geomajas-project-javascript,geomajas-project-javascript-gwt2-impl,org.geomajas.project,Geomajas Project JavaScript GWT2 – Implementation,,,/gwt2/impl
 geomajas-project-javascript,geomajas-project-javascript-gwt2-server-extension-impl,org.geomajas.project,Geomajas Project JavaScript GWT2 - Server Extension Implementation,,,/gwt2/server-extension-impl
 geomajas-project-javascript,geomajas-project-javascript-server-extension-api,org.geomajas.project,Geomajas Project JavaScript Server Extension – API,,,/server-extension-api
+geomajas-project-javascript,geomajas-project-javascript-javadoc,org.geomajas.project,Geomajas Project JavaScript – Javadoc,,,/javadoc
 geomajas-project-server,geomajas-project-server,org.geomajas.project,Geomajas server project,1.16.1,,/
 geomajas-project-server,geomajas-api-experimental,org.geomajas.project,Geomajas server: Main - experimental api,1.16.1,,/api-experimental
 geomajas-project-server,geomajas-api,org.geomajas,Geomajas server: Main – api,1.16.1,,/api
@@ -270,4 +271,3 @@ geomajas-project-deskmanager,geomajas-project-deskmanager,org.geomajas.project,G
 geomajas-project-deskmanager,geomajas-project-deskmanager,org.geomajas,Geomajas Project Deskmanager – Impl,1.0.0-M9,,/impl
 geomajas-project-deskmanager,geomajas-project-deskmanager,org.geomajas,Geomajas Project Deskmanager – Gwt,1.0.0-M9,,/gwt
 geomajas-project-deskmanager,geomajas-project-deskmanager,org.geomajas,Geomajas Project Deskmanager – Documentation,1.0.0-M9,,/documentation
-
