@@ -212,7 +212,7 @@ geomajas-project-client-gwt2,geomajas-client-gwt2-plugin-wms-print,org.geomajas.
 geomajas-project-client-gwt2,geomajas-client-gwt2-plugin-wms-server-extension,org.geomajas.plugin,Geomajas GWT2 client: Plugin WMS - Server Extension,2.0.0,2.1.0-M2,/plugin/wms/server-extension
 geomajas-project-client-gwt2,geomajas-client-gwt2-plugin-wms,org.geomajas.plugin,Geomajas GWT2 client: Plugin WMS – Library,2.0.0,2.1.0-M2,/plugin/wms/wms
 geomajas-project-client-gwt2,geomajas-client-gwt2-server-extension,org.geomajas,Geomajas GWT2 client: Main - Server Extension,2.0.0,2.1.0-M2,/server-extension
-geomajas-build-tools,geomajas-build-tools,org.geomajas.project,,2.1.0,,/
+geomajas-build-tools,geomajas-build-tools,org.geomajas.project,,2.4.0,,/
 geomajas-build-tools,geomajas-checkstyle,org.geomajas,Geomajas checkstyle configuration,2.4.0,,/geomajas-checkstyle
 geomajas-build-tools,geomajas-dep,org.geomajas,Geomajas dependencies,2.1.0,,/geomajas-dep
 geomajas-build-tools,geomajas-jetty-runner,org.geomajas,Geomajas Jetty runner,2.4.0,,/geomajas-jetty-runner
@@ -225,10 +225,10 @@ geomajas-project-hammer-gwt,geomajas-project-hammer-gwt-example,org.geomajas.ham
 geomajas-project-hammer-gwt,geomajas-project-hammer-gwt-impl,org.geomajas.hammergwt,1.0.0,,,/hammer-gwt-impl
 geomajas-gwt2-quickstart-application,geomajas-gwt2-quickstart-application,org.geomajas,Geomajas GWT2 quickstart application,,,/
 geomajas-gwt-quickstart-application,geomajas-gwt-quickstart-application,org.geomajas,Geomajas GWT quickstart application,,,/
-geomajas-parents,geomajas-parents,org.geomajas.project,,2.1.0,,/
-geomajas-parents,geomajas-al-parent,org.geomajas,Geomajas parent module for Apache licensed projects,2.1.0,,/geomajas-al-parent
-geomajas-parents,geomajas-doc-parent,org.geomajas,Geomajas documentation parent,2.1.0,,/geomajas-doc-parent
-geomajas-parents,geomajas-parent,org.geomajas,Geomajas parent module,2.1.0,,/geomajas-parent
+geomajas-parents,geomajas-parents,org.geomajas.project,,2.3.2,,/
+geomajas-parents,geomajas-al-parent,org.geomajas,Geomajas parent module for Apache licensed projects,2.3.2,,/geomajas-al-parent
+geomajas-parents,geomajas-doc-parent,org.geomajas,Geomajas documentation parent,2.3.2,,/geomajas-doc-parent
+geomajas-parents,geomajas-parent,org.geomajas,Geomajas parent module,2.3.2,,/geomajas-parent
 geomajas-widget-definitions-sample,example,org.geomajas.widget,,,,/example
 geomajas-project-graphics,geomajas-project-graphics-all,org.geomajas.project,Geomajas Graphics Project,,1.0.0-M3,/
 geomajas-project-graphics,geomajas-project-graphics-documentation,org.geomajas.documentation,Geomajas Graphics documentation,,1.0.0-M3,/documentation
