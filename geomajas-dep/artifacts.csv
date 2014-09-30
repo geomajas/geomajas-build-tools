@@ -8,9 +8,6 @@ geomajas-project-client-gwt,geomajas-gwt-example-base,org.geomajas,Geomajas GWT 
 geomajas-project-client-gwt,geomajas-gwt-face-example-jar,org.geomajas,Geomajas GWT client: Main - Example jar,/example-jar
 geomajas-project-client-gwt,geomajas-gwt-face-example,org.geomajas,Geomajas GWT client: Main - Example,/example
 geomajas-project-client-gwt,geomajas-client-gwt-plugin-parent,org.geomajas,Geomajas GWT client: Plugin parent,/plugin
-geomajas-project-client-gwt,geomajas-client-gwt-plugin-deskmanager-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Deskmanager - Parent,/plugin/deskmanager 
-geomajas-project-client-gwt,geomajas-plugin-deskmanager-documentation,org.geomajas.plugin,Geomajas GWT client: Plugin Deskmanager – Documentation,/plugin/deskmanager/deskmanager-documentation
-geomajas-project-client-gwt,geomajas-plugin-deskmanager-gwt,org.geomajas.plugin,Geomajas GWT client: Plugin Deskmanager – GWT,/plugin/deskmanager/deskmanager-gwt
 geomajas-project-client-gwt,geomajas-client-gwt-plugin-editing-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Editing – Parent,/plugin/editing
 geomajas-project-client-gwt,geomajas-plugin-editing-gwt-example-jar,org.geomajas.plugin,Geomajas GWT client: Plugin Editing - Example jar,/plugin/editing/editing-gwt-example-jar
 geomajas-project-client-gwt,geomajas-plugin-editing-gwt-example,org.geomajas.plugin,Geomajas GWT client: Plugin Editing – Example,/plugin/editing/editing-gwt-example
@@ -60,7 +57,6 @@ geomajas-project-client-gwt,geomajas-plugin-vendorspecificpipeline-gwt-example-j
 geomajas-project-client-gwt,geomajas-plugin-vendorspecificpipeline-gwt-example,org.geomajas.plugin,Geomajas GWT client: Plugin Vendorspecificpipeline – Example,/plugin/vendorspecificpipeline/vendorspecificpipeline-gwt-example
 geomajas-project-client-gwt,geomajas-client-gwt-widget-advancedviews-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Widget Advancedviews – Parent,/plugin/widget-advancedviews
 geomajas-project-client-gwt,geomajas-widget-advancedviews-documentation,org.geomajas.widget,Geomajas GWT client: Plugin Widget Advancedviews – Documentation,/plugin/widget-advancedviews/advancedviews-documentation
-geomajas-project-client-gwt,geomajas-widget-advancedviews-editor,org.geomajas.widget,Geomajas GWT client: Plugin Widget Advancedviews - Deskmanager Editor,/plugin/widget-advancedviews/advancedviews-editor
 geomajas-project-client-gwt,geomajas-widget-advancedviews-gwt-example,org.geomajas.widget,Geomajas GWT client: Plugin Widget Advancedviews – Example,/plugin/widget-advancedviews/advancedviews-gwt-example
 geomajas-project-client-gwt,geomajas-widget-advancedviews-gwt,org.geomajas.widget,Geomajas GWT client: Plugin Widget Advancedviews – GWT,/plugin/widget-advancedviews/advancedviews-gwt
 geomajas-project-client-gwt,geomajas-widget-advancedviews,org.geomajas.widget,Geomajas GWT client: Plugin Widget Advancedviews – Server,/plugin/widget-advancedviews/advancedviews
@@ -72,14 +68,12 @@ geomajas-project-client-gwt,geomajas-widget-featureinfo-gwt,org.geomajas.widget,
 geomajas-project-client-gwt,geomajas-widget-featureinfo,org.geomajas.widget,Geomajas GWT client: Plugin Widget Featureinfo – Server,/plugin/widget-featureinfo/featureinfo
 geomajas-project-client-gwt,geomajas-client-gwt-widget-layer-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Widget Layer – Parent,/plugin/widget-layer
 geomajas-project-client-gwt,geomajas-widget-layer-documentation,org.geomajas.widget,Geomajas GWT client: Plugin Widget Layer – Documentation,/plugin/widget-layer/layer-documentation
-geomajas-project-client-gwt,geomajas-widget-layer-editor,org.geomajas.widget,Geomajas GWT client: Plugin Widget Layer - Deskmanager Editor,/plugin/widget-layer/layer-editor
 geomajas-project-client-gwt,geomajas-widget-layer-gwt-example-jar,org.geomajas.widget,Geomajas GWT client: Plugin Widget Layer - Example jar,/plugin/widget-layer/layer-gwt-example-jar
 geomajas-project-client-gwt,geomajas-widget-layer-gwt-example,org.geomajas.widget,Geomajas GWT client: Plugin Widget Layer – Example,/plugin/widget-layer/layer-gwt-example
 geomajas-project-client-gwt,geomajas-widget-layer-gwt,org.geomajas.widget,Geomajas GWT client: Plugin Widget Layer – GWT,/plugin/widget-layer/layer-gwt
 geomajas-project-client-gwt,geomajas-widget-layer,org.geomajas.widget,Geomajas GWT client: Plugin Widget Layer – Server,/plugin/widget-layer/layer
 geomajas-project-client-gwt,geomajas-client-gwt-widget-searchandfilter-parent,org.geomajas.plugin,Geomajas GWT client: Plugin Searchandfilter – Parent,/plugin/widget-searchandfilter
 geomajas-project-client-gwt,geomajas-widget-searchandfilter-documentation,org.geomajas.widget,Geomajas GWT client: Plugin Searchandfilter – Documentation,/plugin/widget-searchandfilter/searchandfilter-documentation
-geomajas-project-client-gwt,geomajas-widget-searchandfilter-editor,org.geomajas.widget,Geomajas GWT client: Plugin Searchandfilter - Deskmanager Editor,/plugin/widget-searchandfilter/searchandfilter-editor
 geomajas-project-client-gwt,geomajas-widget-searchandfilter-gwt-example,org.geomajas.widget,Geomajas GWT client: Plugin Searchandfilter – Example,/plugin/widget-searchandfilter/searchandfilter-gwt-example
 geomajas-project-client-gwt,geomajas-widget-searchandfilter-gwt,org.geomajas.widget,Geomajas GWT client: Plugin Searchandfilter – GWT,/plugin/widget-searchandfilter/searchandfilter-gwt
 geomajas-project-client-gwt,geomajas-widget-searchandfilter-ribbon-gwt,org.geomajas.widget,Geomajas GWT client: Plugin Searchandfilter - Ribbon GWT,/plugin/widget-searchandfilter/searchandfilter-ribbon-gwt
@@ -293,3 +287,6 @@ geomajas-project-deskmanager,geomajas-project-deskmanager,org.geomajas.project,G
 geomajas-project-deskmanager,geomajas-project-deskmanager,org.geomajas,Geomajas Project Deskmanager – Impl,/impl
 geomajas-project-deskmanager,geomajas-project-deskmanager,org.geomajas,Geomajas Project Deskmanager – Gwt,/gwt
 geomajas-project-deskmanager,geomajas-project-deskmanager,org.geomajas,Geomajas Project Deskmanager – Documentation,/documentation
+geomajas-project-deskmanager,geomajas-project-deskmanager,org.geomajas,Geomajas GWT client: Plugin Widget Advancedviews - Deskmanager Editor,/plugin/widget-advancedviews/advancedviews-editor
+geomajas-project-deskmanager,geomajas-project-deskmanager,org.geomajas,Geomajas GWT client: Plugin Widget Layer - Deskmanager Editor,/plugin/widget-layer/layer-editor
+geomajas-project-deskmanager,geomajas-project-deskmanager,org.geomajas,Geomajas GWT client: Plugin Searchandfilter - Deskmanager Editor,/plugin/widget-searchandfilter/searchandfilter-editor
