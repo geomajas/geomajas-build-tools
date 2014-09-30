@@ -13,7 +13,8 @@ if [ $LOCAL = $REMOTE ]; then
     echo "Up-to-date"
 elif [ $LOCAL = $BASE ]; then
     echo "Need to pull"
-    bash geomajas-dep/aggregate.sh
+    cd geomajas-dep
+    bash aggregate.sh
 elif [ $REMOTE = $BASE ]; then
     echo "Need to push, should not happen"
     echo "" | mail -s "Documentation script needs attention, needs to push changes <EOM>" $CONFLICT_MAIL

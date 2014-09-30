@@ -11,11 +11,11 @@
 
 # Set this variable to 0 when running in production.
 # Everything else for development mode.
-developmentMode=0
+developmentMode=1
 
 # CSV filenames.
-fileName=artifacts.csv
-oldFileName=oldArtifacts.csv
+artefactsFile=artifacts.csv
+projectsFile=projects.csv
 
 # A variable for checking of this script should build everything.
 cleanRun=0
@@ -36,6 +36,12 @@ else
     targetDirForJavaDoc="$userHomeDirectory/TEMP/javadoc"
 fi
 
+if [[ "$1" == "snapshots" ]]
+then
+  	buildSnapshots="true";
+fi
+
+
 ################################################################
 # GLOBAL FUNCTIONS. (Have to be declared before executing them!)
 ################################################################
@@ -50,7 +56,7 @@ function addGoogleAnalyticsScriptTo()
     # Find all html file in the target direcotory and add the Google analytics script to the end of the file.
     find ${1} -type f -iname "*.html" | while read i; do
 
-        printf "%s%s\n" "- Adding analytics script to: " "$i";
+        #printf "%s%s\n" "- Adding analytics script to: " "$i";
 
         # Add the script before the closing body tag with some formatting.
         sed -i 's*</BODY>\|</body>*\
@@ -70,6 +76,19 @@ function addGoogleAnalyticsScriptTo()
     done
 }
 
+function readVersion()
+{
+	lookupProject=$1
+	unset projectVersion;
+
+	while IFS=, read -r myProject releaseVersion snapshotVersion
+	do
+		if [ "$myProject" == "$lookupProject" ]
+		then
+			projectVersion=$releaseVersion;
+		fi
+	done < $projectsFile
+}
 ####################################################
 # Generate documentation for projects in a CSV file.
 ####################################################
@@ -84,170 +103,92 @@ function generateDocumentation()
 	PWD=`pwd`
 
 	# Read the csv file line by line.
-	while IFS=, read -r project artifactId groupId name releaseVersion milestoneVersion path
+	while IFS=, read -r project artifactId groupId name path
 	do
+		readVersion $project;
+		releaseVersion=$projectVersion;
+
         # Get the latest snapshotVersion for this artifact.
-        LATEST=$(curl --silent "http://apps.geomajas.org/nexus/service/local/artifact/maven/resolve?r=snapshots&g=$groupId&a=$artifactId&v=LATEST&e=jar")
-        snapshotVersion=$(grep -oPm1 "(?<=<baseVersion>)[^<]+" <<< $LATEST)
+        if [ -n "$buildSnapshots" ]
+        then
+        	LATEST=$(curl --silent "http://apps.geomajas.org/nexus/service/local/artifact/maven/resolve?r=snapshots&g=$groupId&a=$artifactId&v=LATEST&e=jar")
+        	snapshotVersion=$(grep -oPm1 "(?<=<baseVersion>)[^<]+" <<< $LATEST)
+        fi
 
 	    # When the artifactId has documentation in it's name do the following ...
 	    if [[ $artifactId =~ .*documentation*. ]] || [[ $groupId =~ .*documentation*. ]]
 	    then
 
-	        counter=$((counter+1))
-	        printf "\n%-10s%-40s%-60s%-20s%-20s%-20s\n" "$counter" "$project" "$artifactId" "$releaseVersion" "$milestoneVersion" "$snapshotVersion";
+			counter=$((counter+1))
+			printf "\n%-10s%-40s%-60s%-20s%-20s%-20s\n" "$counter" "$project" "$artifactId" "$releaseVersion" "$milestoneVersion" "$snapshotVersion";
 
-	        # Create the documentation for the releaseVersion when there is one.
-	        if [ -n "$releaseVersion" ] && [[ $cleanRun -eq 1 ]]
-	        then
-	            LOCATION="https://oss.sonatype.org/service/local/artifact/maven/redirect?r=releases&g=$groupId&a=$artifactId&v=$releaseVersion&e=jar"
-	            wget -q --no-check-certificate $LOCATION -O docs.zip
-
-	            # Only execute this when the file exists and is bigger than 0kb.
-	            if [ -s docs.zip ]
-	            then
-	                # Extract to subfolders when a plugin/widget is found
-	                if [[ $groupId =~ .*plugin*. ]] || [[ $groupId =~ .*widget*. ]]
-	                then
-	                    mkdir -p $targetDirForDocumentation/$project/$releaseVersion/plugin/$artifactId
-	                    unzip -q -o docs.zip -d $targetDirForDocumentation/$project/$releaseVersion/plugin/$artifactId
-	                    # Add Google analytics script to extracted content.
-	                    addGoogleAnalyticsScriptTo $targetDirForDocumentation/$project/$releaseVersion/plugin/$artifactId
-	                elif [[ $project =~ .*geomajas-project-documentation*.  ]]
-                        then
-                            mkdir -p $targetDirForDocumentation/$project/$releaseVersion/$artifactId
-                            unzip -q -o docs.zip -d $targetDirForDocumentation/$project/$releaseVersion/$artifactId
-                            # Add Google analytics script to extracted content.
-                            addGoogleAnalyticsScriptTo $targetDirForDocumentation/$project/$releaseVersion/$artifactId
-	                else
-	                    mkdir -p $targetDirForDocumentation/$project/$releaseVersion
-	                    unzip -q -o docs.zip -d $targetDirForDocumentation/$project/$releaseVersion
-	                    # Add Google analytics script to extracted content.
-	                    addGoogleAnalyticsScriptTo $targetDirForDocumentation/$project/$releaseVersion
-	                fi
-	                rm docs.zip
-	            fi
-	        fi
-
-	        # Create the documentation for the milestoneVersion when there is one.
-	        if [ -n "$milestoneVersion" ] && [[ $cleanRun -eq 1 ]]
-	        then
-	            LOCATION="https://oss.sonatype.org/service/local/artifact/maven/redirect?r=releases&g=$groupId&a=$artifactId&v=$milestoneVersion&e=jar"
-	            wget -q --no-check-certificate $LOCATION -O docs.zip
-
-	            # Only execute this when the file exists and is bigger than 0kb.
-	            if [ -s docs.zip ]
-	            then
-	                # Extract to subfolders when a plugin/widget is found
-	                if [[ $groupId =~ .*plugin*. ]] || [[ $groupId =~ .*widget*. ]]
-	                then
-	                    mkdir -p $targetDirForDocumentation/$project/$milestoneVersion/plugin/$artifactId
-	                    unzip -q -o docs.zip -d $targetDirForDocumentation/$project/$milestoneVersion/plugin/$artifactId
-	                    # Add Google analytics script to extracted content.
-	                    addGoogleAnalyticsScriptTo $targetDirForDocumentation/$project/$milestoneVersion/plugin/$artifactId
-	                elif [[ $project =~ .*geomajas-project-documentation*.  ]]
-                        then
-                            mkdir -p $targetDirForDocumentation/$project/$milestoneVersion/$artifactId
-                            unzip -q -o docs.zip -d $targetDirForDocumentation/$project/$milestoneVersion/$artifactId
-                            # Add Google analytics script to extracted content.
-                            addGoogleAnalyticsScriptTo $targetDirForDocumentation/$project/$milestoneVersion/$artifactId
-	                else
-	                    mkdir -p $targetDirForDocumentation/$project/$milestoneVersion
-	                    unzip -q -o docs.zip -d $targetDirForDocumentation/$project/$milestoneVersion
-	                    # Add Google analytics script to extracted content.
-	                    addGoogleAnalyticsScriptTo $targetDirForDocumentation/$project/$milestoneVersion
-	                fi
-	                rm docs.zip
-	            fi
-	        fi
-
-	         # Create the documentation for the snapshotVersion when there is one.
-	        if [ -n "$snapshotVersion" ]
-	        then
-	            LOCATION="http://apps.geomajas.org/nexus/service/local/artifact/maven/redirect?r=latest&g=$groupId&a=$artifactId&v=$snapshotVersion&e=jar"
-	            wget -q --no-check-certificate $LOCATION -O docs.zip
-
-	            # Only execute this when the file exists and is bigger than 0kb.
-	            if [ -s docs.zip ]
-	            then
-	                # Extract to subfolders when a plugin/widget is found
-	                if [[ $groupId =~ .*plugin*. ]] || [[ $groupId =~ .*widget*. ]]
-	                then
-	                    mkdir -p $targetDirForDocumentation/$project/snapshot/plugin/$artifactId
-	                    unzip -q -o docs.zip -d $targetDirForDocumentation/$project/snapshot/plugin/$artifactId
-	                    # Add Google analytics script to extracted content.
-	                    addGoogleAnalyticsScriptTo $targetDirForDocumentation/$project/snapshot/plugin/$artifactId
-	                elif [[ $project =~ .*geomajas-project-documentation*.  ]]
+			# Create the documentation for the releaseVersion when there is one.
+			if [ -n "$releaseVersion" ] && [[ $cleanRun -eq 1 ]]
+			then
+				# Extract to subfolders when a plugin/widget is found
+				if [[ $groupId =~ .*plugin*. ]] || [[ $groupId =~ .*widget*. ]]
+				then
+					directory=$targetDirForDocumentation/$project/$releaseVersion/plugin/$artifactId;
+					if [ ! -d "$directory" ]
 					then
-						mkdir -p $targetDirForDocumentation/$project/snapshot/$artifactId
-						unzip -q -o docs.zip -d $targetDirForDocumentation/$project/snapshot/$artifactId
-						# Add Google analytics script to extracted content.
-						addGoogleAnalyticsScriptTo $targetDirForDocumentation/$project/snapshot/$artifactId
-	                else
-	                    mkdir -p $targetDirForDocumentation/$project/snapshot
-	                    unzip -q -o docs.zip -d $targetDirForDocumentation/$project/snapshot/
-	                    # Add Google analytics script to extracted content.
-	                    addGoogleAnalyticsScriptTo $targetDirForDocumentation/$project/snapshot
-	                fi
-	                rm docs.zip
-	            fi
-	        fi
+						LOCATION="https://oss.sonatype.org/service/local/artifact/maven/redirect?r=releases&g=$groupId&a=$artifactId&v=$releaseVersion&e=jar"
+						wget -q --no-check-certificate $LOCATION -O docs.zip
+						# Only execute this when the file exists and is bigger than 0kb.
+						if [ -s docs.zip ]
+						then
+							mkdir -p $directory
+							unzip -q -o docs.zip -d $directory
+							# Add Google analytics script to extracted content.
+							addGoogleAnalyticsScriptTo $directory
+							rm docs.zip
+						fi
+					fi
+				else
+					directory=$targetDirForDocumentation/$project/$releaseVersion/$artifactId;
+					if [ ! -d "$directory" ]
+					then
+						LOCATION="https://oss.sonatype.org/service/local/artifact/maven/redirect?r=releases&g=$groupId&a=$artifactId&v=$releaseVersion&e=jar"
+						wget -q --no-check-certificate $LOCATION -O docs.zip
+						# Only execute this when the file exists and is bigger than 0kb.
+						if [ -s docs.zip ]
+						then
+							mkdir -p $directory
+							unzip -q -o docs.zip -d $directory
+							# Add Google analytics script to extracted content.
+							addGoogleAnalyticsScriptTo $directory
+							rm docs.zip
+						fi
+					fi
+				fi
+			fi
+		fi
 
-	    fi
-	done < $fileName
-}
+		 # Create the documentation for the snapshotVersion when there is one.
+		if [ -n "$snapshotVersion" ] && [ -n "$buildSnapshots" ]
+		then
+			LOCATION="http://apps.geomajas.org/nexus/service/local/artifact/maven/redirect?r=latest&g=$groupId&a=$artifactId&v=$snapshotVersion&e=jar"
+			wget -q --no-check-certificate $LOCATION -O docs.zip
 
-####################################################
-# Generate documentation for projects in a CSV file.
-####################################################
-function generateOlderDocumentation()
-{
-	# READ A CSV FILE AND GENERATE THE DOCUMENTATION FOR EACH PROJECT.
-	##################################################################
-
-	printf "\n%s\n" "# PROCESSING DOCUMENTATION FOR THE FOLLOWING OLDER ARTIFACTS:";
-
-	# Read the csv file line by line.
-	while IFS=, read -r project artifactId groupId releaseVersion
-	do
-	    # Correct permissions ...?
-	    PWD=`pwd`
-
-	    # When the artifactId has documentation in it's name do the following ...
-	    if [[ $artifactId =~ .*documentation*. ]]
-	    then
-
-	        counter=$((counter+1))
-	        printf "\n%-10s%-40s%-60s%-20s%-20s%-20s\n" "$counter" "$project" "$artifactId" "$releaseVersion";
-
-	        # Create the documentation for the releaseVersion when there is one.
-	        if [ -n "$releaseVersion" ] && [[ $cleanRun -eq 1 ]]
-	        then
-	            LOCATION="https://oss.sonatype.org/service/local/artifact/maven/redirect?r=releases&g=$groupId&a=$artifactId&v=$releaseVersion&e=jar"
-	            wget -q --no-check-certificate $LOCATION -O docs.zip
-
-	            # Only execute this when the file exists and is bigger than 0kb.
-	            if [ -s docs.zip ]
-	            then
-	                # Extract to subfolders when a plugin/widget is found
-	                if [[ $groupId =~ .*plugin*. ]] || [[ $groupId =~ .*widget*. ]]
-	                then
-	                    mkdir -p $targetDirForDocumentation/$project/$releaseVersion/plugin/$artifactId
-	                    unzip -q -o docs.zip -d $targetDirForDocumentation/$project/$releaseVersion/plugin/$artifactId
-	                    # Add Google analytics script to extracted content.
-	                    addGoogleAnalyticsScriptTo $targetDirForDocumentation/$project/$releaseVersion/plugin/$artifactId
-	                else
-	                    mkdir -p $targetDirForDocumentation/$project/$releaseVersion
-	                    unzip -q -o docs.zip -d $targetDirForDocumentation/$project/$releaseVersion
-	                    # Add Google analytics script to extracted content.
-	                    addGoogleAnalyticsScriptTo $targetDirForDocumentation/$project/$releaseVersion
-	                fi
-	                rm docs.zip
-	            fi
-	        fi
-
-	    fi
-	done < $oldFileName
+			# Only execute this when the file exists and is bigger than 0kb.
+			if [ -s docs.zip ]
+			then
+				# Extract to subfolders when a plugin/widget is found
+				if [[ $groupId =~ .*plugin*. ]] || [[ $groupId =~ .*widget*. ]]
+				then
+					mkdir -p $targetDirForDocumentation/$project/snapshot/plugin/$artifactId
+					unzip -q -o docs.zip -d $targetDirForDocumentation/$project/snapshot/plugin/$artifactId
+					# Add Google analytics script to extracted content.
+					addGoogleAnalyticsScriptTo $targetDirForDocumentation/$project/snapshot/plugin/$artifactId
+				else
+					mkdir -p $targetDirForDocumentation/$project/snapshot/$artifactId
+					unzip -q -o docs.zip -d $targetDirForDocumentation/$project/snapshot/$artifactId
+					# Add Google analytics script to extracted content.
+					addGoogleAnalyticsScriptTo $targetDirForDocumentation/$project/snapshot/$artifactId
+				fi
+				rm docs.zip
+			fi
+		fi
+	done < $artefactsFile
 }
 
 ##############################################
@@ -260,72 +201,66 @@ function generateJavaDoc()
 
 	while IFS=, read project artifactId groupId name releaseVersion milestoneVersion path
 	do
+		readVersion $project;
+		releaseVersion=$projectVersion;
+
 		# Get the latest snapshotVersion for this artifact.
-        LATEST=$(curl --silent "http://apps.geomajas.org/nexus/service/local/artifact/maven/resolve?r=snapshots&g=$groupId&a=$artifactId&v=LATEST&e=jar")
-        snapshotVersion=$(grep -oPm1 "(?<=<baseVersion>)[^<]+" <<< $LATEST)
+        if [ -n "$buildSnapshots" ]
+        then
+			LATEST=$(curl --silent "http://apps.geomajas.org/nexus/service/local/artifact/maven/resolve?r=snapshots&g=$groupId&a=$artifactId&v=LATEST&e=jar")
+			snapshotVersion=$(grep -oPm1 "(?<=<baseVersion>)[^<]+" <<< $LATEST)
+		fi
 
 		# Create the javadoc for the releaseVersion when there is one.
 		if [ -n "$releaseVersion" ] && [[ $cleanRun -eq 1 ]]
 		then
-		    LOCATION="https://oss.sonatype.org/service/local/artifact/maven/redirect?r=releases&g=$groupId&a=$artifactId&v=$releaseVersion&e=jar&c=javadoc"
-		    wget -q --no-check-certificate $LOCATION -O javadocs.zip
+			# Extract to subfolders when a plugin/widget is found
+			if [[ $groupId =~ .*plugin*. ]] || [[ $groupId =~ .*widget*. ]]
+			then
+				directory=$targetDirForJavaDoc/$project/$releaseVersion/plugin/$artifactId;
+				if [ ! -d "$directory" ]
+				then
+					LOCATION="https://oss.sonatype.org/service/local/artifact/maven/redirect?r=releases&g=$groupId&a=$artifactId&v=$releaseVersion&e=jar&c=javadoc"
+					wget -q --no-check-certificate $LOCATION -O javadocs.zip
 
-		    # Only execute this when the file exists and is bigger than 0kb.
-		    if [ -s javadocs.zip ]
-		    then
-		        printf "\n%-30s%s\n" "- JAVADOC FOR RELEASE FOUND: " $LOCATION;
+					# Only execute this when the file exists and is bigger than 0kb.
+					if [ -s javadocs.zip ]
+					then
+						printf "\n%-30s%s\n" "- JAVADOC FOR RELEASE FOUND: " $LOCATION;
 
-		        # Extract to subfolders when a plugin/widget is found
-		        if [[ $groupId =~ .*plugin*. ]] || [[ $groupId =~ .*widget*. ]]
-		        then
-		            mkdir -p $targetDirForJavaDoc/$project/$releaseVersion/plugin/$artifactId
-		            unzip -q -o javadocs.zip -d $targetDirForJavaDoc/$project/$releaseVersion/plugin/$artifactId
-		            # Add Google analytics script to extracted content.
-	                addGoogleAnalyticsScriptTo $targetDirForJavaDoc/$project/$releaseVersion/plugin/$artifactId
-		        else
-		            mkdir -p $targetDirForJavaDoc/$project/$releaseVersion
-		            unzip -q -o javadocs.zip -d $targetDirForJavaDoc/$project/$releaseVersion
-		            # Add Google analytics script to extracted content.
-	                addGoogleAnalyticsScriptTo $targetDirForJavaDoc/$project/$releaseVersion
-		        fi
-		        rm javadocs.zip
-            else
-                printf "\n%-30s%s\n" "- JDOC FOR RELEASE MISSING: " $LOCATION;
-		    fi
-		fi
+						mkdir -p $directory
+						unzip -q -o javadocs.zip -d $directory
+						# Add Google analytics script to extracted content.
+						addGoogleAnalyticsScriptTo $directory
+						rm javadocs.zip
+					fi
+				fi
+			else
+				directory=$targetDirForJavaDoc/$project/$releaseVersion/plugin/$artifactId;
+				if [ ! -d "$directory" ]
+				then
+					LOCATION="https://oss.sonatype.org/service/local/artifact/maven/redirect?r=releases&g=$groupId&a=$artifactId&v=$releaseVersion&e=jar&c=javadoc"
+					wget -q --no-check-certificate $LOCATION -O javadocs.zip
 
-		# Create the javadoc for the milestoneVersion when there is one.
-		if [ -n "$milestoneVersion" ] && [[ $cleanRun -eq 1 ]]
-		then
-		    LOCATION="https://oss.sonatype.org/service/local/artifact/maven/redirect?r=releases&g=$groupId&a=$artifactId&v=$milestoneVersion&e=jar&c=javadoc"
-		    wget -q --no-check-certificate $LOCATION -O javadocs.zip
+					# Only execute this when the file exists and is bigger than 0kb.
+					if [ -s javadocs.zip ]
+					then
+						printf "\n%-30s%s\n" "- JAVADOC FOR RELEASE FOUND: " $LOCATION;
 
-		    # Only execute this when the file exists and is bigger than 0kb.
-		    if [ -s javadocs.zip ]
-		    then
-		        printf "\n%-30s%s\n" "- JAVADOC FOR MILESTONE FOUND: " $LOCATION;
-
-		        # Extract to subfolders when a plugin/widget is found
-		        if [[ $groupId =~ .*plugin*. ]] || [[ $groupId =~ .*widget*. ]]
-		        then
-		            mkdir -p $targetDirForJavaDoc/$project/$milestoneVersion/plugin/$artifactId
-		            unzip -q -o javadocs.zip -d $targetDirForJavaDoc/$project/$milestoneVersion/plugin/$artifactId
-		            # Add Google analytics script to extracted content.
-	                addGoogleAnalyticsScriptTo $targetDirForJavaDoc/$project/$milestoneVersion/plugin/$artifactId
-		        else
-		            mkdir -p $targetDirForJavaDoc/$project/$milestoneVersion
-		            unzip -q -o javadocs.zip -d $targetDirForJavaDoc/$project/$milestoneVersion
-		            # Add Google analytics script to extracted content.
-	                addGoogleAnalyticsScriptTo $targetDirForJavaDoc/$project/$milestoneVersion
-		        fi
-		        rm javadocs.zip
-            else
-                printf "\n%-30s%s\n" "- JDOC FOR MILESTONE MISSING: " $LOCATION;
-		    fi
+						mkdir -p $targetDirForJavaDoc/$project/$releaseVersion/$artifactId
+						unzip -q -o javadocs.zip -d $targetDirForJavaDoc/$project/$releaseVersion/$artifactId
+						# Add Google analytics script to extracted content.
+						addGoogleAnalyticsScriptTo $targetDirForJavaDoc/$project/$releaseVersion/$artifactId
+						rm javadocs.zip
+					fi
+				fi
+			fi
+		else
+			printf "\n%-30s%s\n" "- JDOC FOR RELEASE MISSING: " $LOCATION;
 		fi
 
 		# Create the javadoc for the snapshotVersion when there is one.
-		if [ -n "$snapshotVersion" ]
+		if [ -n "$snapshotVersion" ] && [ -n "$buildSnapshots" ]
 		then
 		    LOCATION="http://apps.geomajas.org/nexus/service/local/artifact/maven/redirect?r=snapshots&g=$groupId&a=$artifactId&v=LATEST&e=jar&c=javadoc"
 		    wget -q --no-check-certificate $LOCATION -O javadocs.zip
@@ -343,10 +278,10 @@ function generateJavaDoc()
 		            # Add Google analytics script to extracted content.
 	                addGoogleAnalyticsScriptTo $targetDirForJavaDoc/$project/snapshot/plugin/$artifactId
 		        else
-		            mkdir -p $targetDirForJavaDoc/$project/snapshot
-		            unzip -q -o javadocs.zip -d $targetDirForJavaDoc/$project/snapshot
+		            mkdir -p $targetDirForJavaDoc/$project/snapshot/$artifactId
+		            unzip -q -o javadocs.zip -d $targetDirForJavaDoc/$project/snapshot/$artifactId
 		            # Add Google analytics script to extracted content.
-	                addGoogleAnalyticsScriptTo $targetDirForJavaDoc/$project/snapshot
+	                addGoogleAnalyticsScriptTo $targetDirForJavaDoc/$project/snapshot/$artifactId
 		        fi
 		        rm javadocs.zip
             else
@@ -354,52 +289,9 @@ function generateJavaDoc()
 		    fi
 		fi
 
-	done < $fileName
+	done < $artefactsFile
 }
 
-##############################################
-# Generate javadoc for projects in a CSV file.
-##############################################
-function generateOlderJavaDoc()
-{
-
-	printf "\n%s\n" "# PROCESSING JAVADOC FOR THE FOLLOWING OLDER ARTIFACTS:";
-
-	while IFS=, read project artifactId groupId releaseVersion
-	do
-
-		# Create the javadoc for the releaseVersion when there is one.
-		if [ -n "$releaseVersion" ] && [[ $cleanRun -eq 1 ]]
-		then
-		    LOCATION="https://oss.sonatype.org/service/local/artifact/maven/redirect?r=releases&g=$groupId&a=$artifactId&v=$releaseVersion&e=jar&c=javadoc"
-		    wget -q --no-check-certificate $LOCATION -O javadocs.zip
-
-		    # Only execute this when the file exists and is bigger than 0kb.
-		    if [ -s javadocs.zip ]
-		    then
-		        printf "\n%-30s%s\n" "- JAVADOC FOR RELEASE FOUND: " $LOCATION;
-
-		        # Extract to subfolders when a plugin/widget is found
-		        if [[ $groupId =~ .*plugin*. ]] || [[ $groupId =~ .*widget*. ]]
-		        then
-		            mkdir -p $targetDirForJavaDoc/$project/$releaseVersion/plugin/$artifactId
-		            unzip -q -o javadocs.zip -d $targetDirForJavaDoc/$project/$releaseVersion/plugin/$artifactId
-		            # Add Google analytics script to extracted content.
-	                addGoogleAnalyticsScriptTo $targetDirForJavaDoc/$project/$releaseVersion/plugin/$artifactId
-		        else
-		            mkdir -p $targetDirForJavaDoc/$project/$releaseVersion
-		            unzip -q -o javadocs.zip -d $targetDirForJavaDoc/$project/$releaseVersion
-		            # Add Google analytics script to extracted content.
-	                addGoogleAnalyticsScriptTo $targetDirForJavaDoc/$project/$releaseVersion
-		        fi
-		        rm javadocs.zip
-            else
-                printf "\n%-30s%s\n" "- JDOC FOR RELEASE MISSING: " $LOCATION;
-		    fi
-		fi
-
-	done < $oldFileName
-}
 
 ###################################################
 # Delete all snapshot directories for a given path.
@@ -421,20 +313,16 @@ function deleteSnapshotDirectoriesFrom()
 
 # Only process the snapshots when the target directories already exist.
 # Otherwise set cleanRun to process everything from scratch.
-if [ -d "$targetDirForDocumentation" ] || [ -d "$targetDirForJavaDoc" ]
+if [ -n "$buildSnapshots" ] && [ -d "$targetDirForDocumentation" ] || [ -n "$buildSnapshots" ] && [ -d "$targetDirForJavaDoc" ]
 then
-    deleteSnapshotDirectoriesFrom $targetDirForDocumentation;
-    deleteSnapshotDirectoriesFrom $targetDirForJavaDoc;
+	deleteSnapshotDirectoriesFrom $targetDirForDocumentation;
+	deleteSnapshotDirectoriesFrom $targetDirForJavaDoc;
 else
 	cleanRun=1
 fi
 
 generateDocumentation;
 
-generateOlderDocumentation;
-
 generateJavaDoc;
-
-generateOlderJavaDoc;
 
 printf "\n%s\n\n" "# SCRIPT IS FINISHED.";
