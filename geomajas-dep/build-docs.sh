@@ -13,6 +13,7 @@ if [ $LOCAL = $REMOTE ]; then
     echo "Up-to-date"
 elif [ $LOCAL = $BASE ]; then
     echo "Need to pull"
+    git pull
     cd geomajas-dep
     bash aggregate.sh
 elif [ $REMOTE = $BASE ]; then
