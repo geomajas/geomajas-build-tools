@@ -11,7 +11,7 @@
 
 # Set this variable to 0 when running in production.
 # Everything else for development mode.
-developmentMode=1
+developmentMode=0
 
 # CSV filenames.
 artefactsFile=artifacts.csv
