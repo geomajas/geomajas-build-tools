@@ -21,5 +21,3 @@ else
     echo "Diverged, should not happen"
     echo "" | mail -s "Documentation script needs attention, diverged changes <EOM>" $CONFLICT_MAIL
 fi
-~                                                                                                                                                                                                                                                                      
-~                                                                                                        
