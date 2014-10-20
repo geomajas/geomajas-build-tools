@@ -139,6 +139,8 @@ function generateDocumentation()
 						# Add Google analytics script to extracted content.
 						addGoogleAnalyticsScriptTo $directory
 						rm docs.zip
+					else 
+						echo "Download failed for $LOCATION" >&2
 					fi
 				fi
 			fi
