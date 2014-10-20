@@ -14,7 +14,6 @@ if [ $LOCAL = $REMOTE ]; then
 elif [ $LOCAL = $BASE ]; then
     echo "Need to pull"
     git pull
-    cd geomajas-dep
     bash aggregate.sh
 elif [ $REMOTE = $BASE ]; then
     echo "Need to push, should not happen"
