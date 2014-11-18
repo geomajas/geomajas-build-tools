@@ -227,6 +227,11 @@ geomajas-project-client-gwt2,geomajas-client-gwt2-plugin-wms-example-jar,org.geo
 geomajas-project-client-gwt2,geomajas-client-gwt2-plugin-wms-print,org.geomajas.plugin,Geomajas GWT2 client: Plugin WMS - Print extension,/plugin/wms/print
 geomajas-project-client-gwt2,geomajas-client-gwt2-plugin-wms-server-extension,org.geomajas.plugin,Geomajas GWT2 client: Plugin WMS - Server Extension,/plugin/wms/server-extension
 geomajas-project-client-gwt2,geomajas-client-gwt2-plugin-wms,org.geomajas.plugin,Geomajas GWT2 client: Plugin WMS – Library,/plugin/wms/wms
+geomajas-project-client-gwt2,geomajas-client-gwt2-plugin-tilebasedlayer-parent,org.geomajas.plugin,Geomajas GWT2 client: Plugin Tilebasedlayer – Parent,/plugin/tilebasedlayer
+geomajas-project-client-gwt2,geomajas-client-gwt2-plugin-tilebasedlayer-documentation,org.geomajas.plugin,Geomajas GWT2 client: Plugin Tilebasedlayer – Documentation,/plugin/tilebasedlayer/documentation
+geomajas-project-client-gwt2,geomajas-client-gwt2-plugin-tilebasedlayer-javadoc,org.geomajas.plugin,Geomajas GWT2 client: Plugin Tilebasedlayer – Javadoc,/plugin/tilebasedlayer/javadoc
+geomajas-project-client-gwt2,geomajas-client-gwt2-plugin-tilebasedlayer-example-jar,org.geomajas.plugin,Geomajas GWT2 client: Plugin Tilebasedlayer – Examples,/plugin/tilebasedlayer/example-jar
+geomajas-project-client-gwt2,geomajas-client-gwt2-plugin-tilebasedlayer,org.geomajas.plugin,Geomajas GWT2 client: Plugin Tilebasedlayer – Library,/plugin/tilebasedlayer/impl
 geomajas-project-client-gwt2,geomajas-client-gwt2-server-extension,org.geomajas,Geomajas GWT2 client: Main - Server Extension,/server-extension
 geomajas-build-tools,geomajas-build-tools,org.geomajas.project,,/
 geomajas-build-tools,geomajas-checkstyle,org.geomajas,Geomajas checkstyle configuration,/geomajas-checkstyle
