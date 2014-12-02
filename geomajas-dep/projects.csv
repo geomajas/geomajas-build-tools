@@ -1,8 +1,8 @@
 project,release version,snapshot version
 geomajas-project-client-gwt,1.15.1
 geomajas-project-javascript,
-geomajas-project-server,1.16.2
-geomajas-project-client-gwt2,2.1.1
+geomajas-project-server,1.16.5
+geomajas-project-client-gwt2,2.1.2
 geomajas-build-tools,2.4.0
 geomajas-gwt2-mobile-quickstart-application,
 geomajas-project-hammer-gwt,1.0.0
