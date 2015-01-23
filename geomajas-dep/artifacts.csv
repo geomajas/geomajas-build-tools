@@ -96,6 +96,7 @@ geomajas-project-javascript,geomajas-project-javascript-assembly,org.geomajas.pr
 geomajas-project-javascript,geomajas-project-javascript-gwt2-example,org.geomajas.project,Geomajas Project JavaScript GWT2 – Example,/gwt2/example
 geomajas-project-javascript,geomajas-project-javascript-gwt2-impl,org.geomajas.project,Geomajas Project JavaScript GWT2 – Implementation,/gwt2/impl
 geomajas-project-javascript,geomajas-project-javascript-gwt2-server-extension-impl,org.geomajas.project,Geomajas Project JavaScript GWT2 - Server Extension Implementation,/gwt2/server-extension-impl
+geomajas-project-javascript,geomajas-project-javascript-gwt2-server-extension-example,org.geomajas.project,Geomajas Project JavaScript GWT2 - Server Extension Examples,/gwt2/server-extension-example
 geomajas-project-javascript,geomajas-project-javascript-server-extension-api,org.geomajas.project,Geomajas Project JavaScript Server Extension – API,/server-extension-api
 geomajas-project-javascript,geomajas-project-javascript-javadoc,org.geomajas.project,Geomajas Project JavaScript – Javadoc,/javadoc
 geomajas-project-server,geomajas-project-server,org.geomajas.project,Geomajas server project,/
