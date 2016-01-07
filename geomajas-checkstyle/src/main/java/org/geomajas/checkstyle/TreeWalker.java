@@ -150,7 +150,7 @@ public final class TreeWalker extends AbstractFileSetCheck {
 		final Object module = mModuleFactory.createModule(name);
 		if (!(module instanceof Check)) {
 			throw new CheckstyleException(
-					"TreeWalker is not allowed as aparent of " + name);
+					"TreeWalker is not allowed as a parent of " + name);
 		}
 		final Check c = (Check) module;
 		c.contextualize(mChildContext);
