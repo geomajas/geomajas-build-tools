@@ -1,7 +1,7 @@
 /*
  * This is part of Geomajas, a GIS framework, http://www.geomajas.org/.
  *
- * Copyright 2008-2015 Geosparc nv, http://www.geosparc.com/, Belgium.
+ * Copyright 2008-2016 Geosparc nv, http://www.geosparc.com/, Belgium.
  *
  * The program is available in open source according to the GNU Affero
  * General Public License. All contributions in this program are covered
@@ -150,7 +150,7 @@ public final class TreeWalker extends AbstractFileSetCheck {
 		final Object module = mModuleFactory.createModule(name);
 		if (!(module instanceof Check)) {
 			throw new CheckstyleException(
-					"TreeWalker is not allowed as a parent of " + name);
+					"TreeWalker is not allowed as aparent of " + name);
 		}
 		final Check c = (Check) module;
 		c.contextualize(mChildContext);
